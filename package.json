@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "gatsby": "^1.9.119",
-    "gatsby-link": "^1.6.28"
+    "gatsby-link": "^1.6.28",
+    "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-source-filesystem": "^1.5.9",
+    "gatsby-transformer-remark": "^1.7.23",
+    "typography-theme-ocean-beach": "^0.15.11"
   }
 }
