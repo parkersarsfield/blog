@@ -1,6 +1,6 @@
 import Typography from 'typography'
-import oceanBeachTheme from 'typography-theme-ocean-beach'
+import judahTheme from 'typography-theme-judah'
 
-const typography = new Typography(oceanBeachTheme)
+const typography = new Typography(judahTheme)
 
 export default typography

@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: "Parker Sarsfield",
+        title: "Parker's Blog",
         author: "Parker Sarsfield"
     },
     plugins: [
@@ -17,6 +17,7 @@ module.exports = {
                 name: 'src',
                 path: `${__dirname}/src`
             }
-        }
+        },
+        'gatsby-plugin-glamor'
     ]
 }
