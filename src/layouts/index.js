@@ -34,7 +34,6 @@ const Header = ({title}) => (
 )
 
 export default ({ children, data }) => {
-    console.log(typo)
     return (
         <div css={outerStyle}>
             <Header title={data.site.siteMetadata.title}/> 
