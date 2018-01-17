@@ -5,7 +5,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "bd": "gatsby build && surge ./public", // build and deploy
+    "bd": "gatsby build && surge ./public",
     "serve": "gatsby serve"
   },
   "dependencies": {
