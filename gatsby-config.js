@@ -21,7 +21,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
-                fonts: ['carios gothic sc']
+                fonts: ['Open Sans']
             }
         },
         'gatsby-plugin-glamor'
