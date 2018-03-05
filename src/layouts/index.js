@@ -5,6 +5,8 @@ import typo, { rhythm, options } from '../utils/typography'
 
 import cdn from '../utils/cdn'
 
+import './index.css'
+
 const outerStyle = css({
     margin: '0 auto',
     maxWidth: 800,
