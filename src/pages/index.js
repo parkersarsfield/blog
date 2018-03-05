@@ -41,7 +41,7 @@ const contentStyle = css({
     maxWidth: '100%',
 })
 
-const navstyle = css({
+const navStyle = css({
     width: '75%',
     color: '#eee',
     top: 0,
@@ -138,12 +138,13 @@ export default class IndexPage extends React.Component {
     return (
         <div css={container}>
         <div css={heroStyle}>
-            <div css={navstyle}>
-                <Link css={pageLinkStyle} to="/blog">Contact</Link>
+            <div css={navStyle}>
+                <Link css={pageLinkStyle} to="/contact">Contact</Link>
+                <Link css={pageLinkStyle} to="/blog">Blog</Link>
                 <Link css={pageLinkStyle} to="/projects">Projects</Link>
             </div>
             <div css={contentStyle}>
-                <p>Hi! I'm <span style={{fontWeight: 'normal'}}>Parker</span>. I am a:</p>
+                <p>Hi! I'm <span style={{fontWeight: 'bold'}}>Parker</span>. I am a:</p>
                 {this.state.isTyping ? <Typer config={typerConfig} textList={thingsIAm} /> : null }
             </div>
             <div css={scrollButton}>

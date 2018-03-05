@@ -3,14 +3,16 @@ import { css } from 'glamor'
 import {rhythm} from '../../utils/typography'
 import Link from 'gatsby-link'
 import PostPreview from './PostPreview'
+
 import longPicSrc from '../../media/mountain.jpg'
+import shoeSrc from '../../media/shoes.jpg'
 
 const container = css({
     position: 'relative',
     maxWidth: '1000px',
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
-    gridTemplateRows: 'repeat(3, minmax(100px, max-content));',
+    gridTemplateRows: 'repeat(4, minmax(100px, max-content));',
     gridGap: '20px',
     margin: '20px auto',
     left: 0,
@@ -31,7 +33,7 @@ const spotify = css({
 
 const history = css({
     gridColumn: 'span 5',
-    gridRow: '2 / 4',
+    gridRow: 'span 2',
     '& ul li': {
         listStyleType: 'none',
         position: 'relative',
@@ -88,16 +90,27 @@ const buttonStyle= css({
         fontWeight: 'bold',
     },
 })
-const AboutGrid = ({data, posts}) => {
+
+const shoeStyle = css({
+    width: '100%',
+    gridColumn: 'span 12',
+    gridRow: 'span 1'
+})
+const AboutGrid = ({ posts, aboutText}) => {
     return (
         <div css={container}>
             <div css={about}>
                 <h1>About Me</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and tech junkie.</p>
+                <p>I am an incoming software engineer at Capital One, and a freelance web developer. </p>
+                <p>When I'm not working hard with the cutting edge technology, you can find me sneaker shopping, reading, or playing Spikeball.</p>
+                <p>I am always open to new opportunities and interesting projects. Don't hesitate to <Link to='/contact'>contact me!</Link></p>
             </div>
             <div css={spotify}>
-                <h3>Featured Album</h3>
-                <iframe src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3" width="100%" height="380" frameBorder="0" allowTransparency="true"></iframe>            </div>
+                <h3>What I'm Listening to</h3>
+                <iframe src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3" width="100%" height="380" frameBorder="0" allowTransparency="true"></iframe>            
+            </div>
+            <img css={shoeStyle} src={shoeSrc} />
             <div css={history}>
                 <h1>My Journey</h1>
                 <ul>
@@ -108,29 +121,23 @@ const AboutGrid = ({data, posts}) => {
                         </div></li>
                     <li><div>
                         <time>2016</time>
-                        <h3>Faithlife</h3>
+                        <h3>Faithlife Inc.</h3>
                         <p>Faithlife is where I fell in love with web development. I worked on <a href="https://www.faithlife.com">this site</a>.</p>
                     </div></li>
                     <li><div>
                         <time>2017 - present</time>
                         <h3>Capital One</h3>
-                        <p>I spent the summer at Capital One working full stack on building web applications for Tech College. I'll be returning full time in September.</p>
+                        <p>I spent the summer of 2017 at Capital One building full stack web applications for Tech College. I'll be returning full time in September.</p>
                     </div></li>
                 </ul>
             </div>
             <div css={longPhoto}>
                 <img src={longPicSrc} />
             </div>
-            {/* <div css={blogPreview}>
-                <h1>Posts</h1>
-                {posts.map(post => {
-                     return <PostPreview post={post} />
-                })}
-            </div> */}
             <div css={learnMore}>
                 <h1>Learn More!</h1>
                 <Link css={buttonStyle} to='/contact'>Contact Me</Link>
-                <Link css={buttonStyle} to='/blog'>Read My Posts</Link>
+                <Link css={buttonStyle} to='/blog'>Read My Blog</Link>
                 <Link css={buttonStyle} to='/projects'>See My Work</Link>
             </div>
         </div>
@@ -138,4 +145,3 @@ const AboutGrid = ({data, posts}) => {
 }
 
 export default AboutGrid
-
