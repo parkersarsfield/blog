@@ -9,6 +9,8 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-brands": "^5.0.8",
+    "font-awesome": "^4.7.0",
     "gatsby": "^1.9.119",
     "gatsby-cli": "^1.1.39",
     "gatsby-link": "^1.6.28",
@@ -17,6 +19,7 @@
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.9",
     "gatsby-transformer-remark": "^1.7.23",
+    "react-fontawesome": "^1.6.1",
     "react-typist": "^2.0.4",
     "react-typist-loop": "0.0.5",
     "typography-theme-judah": "^0.15.10",
