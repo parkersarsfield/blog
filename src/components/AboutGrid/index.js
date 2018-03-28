@@ -4,36 +4,34 @@ import {rhythm} from '../../utils/typography'
 import Link from 'gatsby-link'
 import PostPreview from './PostPreview'
 
+import SlantedBg from '../SlantedBg'
+
 import longPicSrc from '../../media/mountain.jpg'
 import shoeSrc from '../../media/shoes.jpg'
 
 const container = css({
     position: 'relative',
     maxWidth: '1000px',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridTemplateRows: 'repeat(4, minmax(100px, max-content));',
-    gridGap: '20px',
+    display: 'flex',
+    flexWrap: 'wrap',
     margin: '20px auto',
     left: 0,
     right: 0,
-    alignItems: 'center',
+    justifyContent: 'center',
     '> div': {
         padding: rhythm(1),
     }
 })
 
-const about = css({
-    gridColumn: 'span 8'
+const infoSection = css({
+    position: 'relative',
+    overflow: 'visible',
+    // minWidth: 'fit-content'
 })
 
-const spotify = css({
-    gridColumn: 'span 4',
-})
 
 const history = css({
-    gridColumn: 'span 5',
-    gridRow: 'span 2',
+    width: '100%',
     '& ul li': {
         listStyleType: 'none',
         position: 'relative',
@@ -64,20 +62,6 @@ const history = css({
     }
 })
 
-const blogPreview = css({
-    gridColumn: 'span 7',
-    gridRow: '',
-})
-
-const longPhoto = css({
-    gridColumn: 'span 7',
-})
-
-const learnMore = css({
-    gridColumn: 'span 7',
-    alignSelf: 'start',
-})
-
 const buttonStyle= css({
     color: '#333',
     border: '1px solid #ffdf00',
@@ -91,26 +75,22 @@ const buttonStyle= css({
     },
 })
 
-const shoeStyle = css({
-    width: '100%',
-    gridColumn: 'span 12',
-    gridRow: 'span 1'
-})
 const AboutGrid = ({ posts, aboutText}) => {
     return (
         <div css={container}>
-            <div css={about}>
+            <div css={infoSection} style={{maxWidth: '600px',}}>
                 <h1>About Me</h1>
                 <p>I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and tech junkie.</p>
                 <p>I am an incoming software engineer at Capital One, and a freelance web developer. </p>
                 <p>When I'm not working hard with the cutting edge technology, you can find me sneaker shopping, reading, or playing Spikeball.</p>
                 <p>I am always open to new opportunities and interesting projects. Don't hesitate to <Link to='/contact'>contact me!</Link></p>
+                <br/>
             </div>
-            <div css={spotify}>
+            <div css={infoSection}>
                 <h3>What I'm Listening to</h3>
                 <iframe src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3" width="100%" height="380" frameBorder="0" allowTransparency="true"></iframe>            
             </div>
-            <img css={shoeStyle} src={shoeSrc} />
+            <img style={{maxWidth: '100%'}}src={shoeSrc} />
             <div css={history}>
                 <h1>My Journey</h1>
                 <ul>
@@ -131,10 +111,10 @@ const AboutGrid = ({ posts, aboutText}) => {
                     </div></li>
                 </ul>
             </div>
-            <div css={longPhoto}>
+            <div css={infoSection}>
                 <img src={longPicSrc} />
             </div>
-            <div css={learnMore}>
+            <div css={infoSection}>
                 <h1>Learn More!</h1>
                 <Link css={buttonStyle} to='/contact'>Contact Me</Link>
                 <Link css={buttonStyle} to='/blog'>Read My Blog</Link>
