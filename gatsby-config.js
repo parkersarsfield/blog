@@ -24,6 +24,8 @@ module.exports = {
                 fonts: ['Open Sans']
             }
         },
-        'gatsby-plugin-glamor'
+        'gatsby-plugin-glamor',
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
     ]
 }

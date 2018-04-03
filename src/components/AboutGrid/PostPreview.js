@@ -26,7 +26,6 @@ const linkStyle = css({
 })
 
 const PostPreview = ({ post }) => {
-    console.log(post)
     return (
         <Link to={post.fields.slug} css={linkStyle}>
             <div css={previewStyle}>

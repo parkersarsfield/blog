@@ -1,13 +1,16 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 import { css } from 'glamor'
 import Typist from 'react-typist'
 import { rhythm } from '../utils/typography'
+import Img from 'gatsby-image'
 
 import bg from '../media/bg.jpg'
 import 'react-typist/dist/Typist.css'
 
 import AboutGrid from '../components/AboutGrid'
+import Header from '../components/Header'
+
 
 const heroStyle = css({
     position: 'relative',
@@ -33,7 +36,7 @@ const heroStyle = css({
 
 const contentStyle = css({
     width: '100%',
-    position:'absolute',
+    position: 'absolute',
     color: '#eee',
     textAlign: 'center',
     fontWeight: 'lighter',
@@ -54,7 +57,7 @@ const navStyle = css({
     textAlign: 'right',
 })
 
-const pageLinkStyle= css({
+const pageLinkStyle = css({
     color: '#eee',
     border: '1px solid #ffdf00',
     margin: rhythm(0.5),
@@ -83,7 +86,7 @@ const scrollButton = css({
     justifyContent: 'center',
     fontWeight: 'light',
     ':after': {
-        content:' ',
+        content: ' ',
         boxSizing: 'border-box',
         height: rhythm(.5),
         width: rhythm(.5),
@@ -104,10 +107,10 @@ const container = css({
     height: '100%',
 })
 
-const Typer = ({config, textList, restart}) => {
+const Typer = ({ config, textList, restart }) => {
     return (
         <Typist {...config}>
-            {textList.map(thing => <span>{thing}<Typist.Backspace delay={2000} count={thing.length +1}/></span>)}
+            {textList.map(thing => <span>{thing}<Typist.Backspace delay={2000} count={thing.length + 1} /></span>)}
         </Typist>
     )
 }
@@ -116,66 +119,61 @@ export default class IndexPage extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state= {
+        this.state = {
             isTyping: true
         }
     }
 
     render() {
-    const posts = this.props.data.allMarkdownRemark.edges.map(edge => edge.node)
-    const thingsIAm = ['software engineer', 'sneakerhead', 'front-end developer', 'musician']
+        const thingsIAm = ['software engineer', 'sneakerhead', 'front-end developer', 'musician']
 
-    const restart = () => {
-        this.setState({isTyping: false})
-        this.setState({isTyping: true})
-    }
+        const restart = () => {
+            this.setState({ isTyping: false })
+            this.setState({ isTyping: true })
+        }
 
-    const typerConfig = {
-        avgTypingDelay: 100,
-        onTypingDone: restart,
-    }
+        const typerConfig = {
+            avgTypingDelay: 100,
+            onTypingDone: restart,
+        }
 
-    return (
-        <div css={container}>
-        <div css={heroStyle}>
-            <div css={navStyle}>
-                <Link css={pageLinkStyle} to="/contact">Contact</Link>
-                <Link css={pageLinkStyle} to="/blog">Blog</Link>
-                <Link css={pageLinkStyle} to="/projects">Projects</Link>
-            </div>
-            <div css={contentStyle}>
-                <p>Hi! I'm <span style={{fontWeight: 'bold'}}>Parker</span>. I am a:</p>
-                {this.state.isTyping ? <Typer config={typerConfig} textList={thingsIAm} /> : null }
-            </div>
-            <div css={scrollButton}>
-                <div>
-                About Me
+        return (
+            <div css={container}>
+                <div css={heroStyle}>
+                    {/* <div css={navStyle}>
+                        <Link css={pageLinkStyle} to="/contact">Contact</Link>
+                        <Link css={pageLinkStyle} to="/blog">Blog</Link>
+                        <Link css={pageLinkStyle} to="/projects">Projects</Link>
+                    </div> */}
+                    <Header title={'Parker Sarsfield'} isFrontPage={true}/>
+
+                    <div css={contentStyle}>
+                        <p>Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am a:</p>
+                        {this.state.isTyping ? <Typer config={typerConfig} textList={thingsIAm} /> : null}
+                    </div>
+                    <div css={scrollButton}>
+                        <div>
+                            About Me
                 </div>
+                    </div>
+                </div>
+                <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageSizes={this.props.data.lastImage.sizes} />
             </div>
-        </div>
-        <AboutGrid posts={posts}/>
-        </div>
-    )}
+        )
+    }
 }
 
 export const query = graphql`
 query IndexQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-        totalCount
-        edges {
-            node {
-                id
-                frontmatter {
-                    title
-                    date(formatString: "DD MMM, YYYY")
-                }
-                fields {
-                    slug
-                }
-                excerpt
-                timeToRead
-            }
+    shoeImage: imageSharp(id: { regex: "/shoes.jpg/" }) {
+      sizes(maxWidth: 1000) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    },
+    lastImage: imageSharp(id: { regex: "/nyc.jpg/" }) {
+        sizes(maxWidth: 1000) {
+          ...GatsbyImageSharpSizes_tracedSVG
         }
-    }
-}
+      }
+  }
 `

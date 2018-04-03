@@ -1,9 +1,9 @@
 import React from 'react'
 import { css } from 'glamor'
-import {rhythm} from '../../utils/typography'
+import { rhythm } from '../../utils/typography'
 import Link from 'gatsby-link'
 import PostPreview from './PostPreview'
-
+import Img from 'gatsby-image'
 import SlantedBg from '../SlantedBg'
 
 import longPicSrc from '../../media/mountain.jpg'
@@ -26,12 +26,28 @@ const container = css({
 const infoSection = css({
     position: 'relative',
     overflow: 'visible',
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '100%',
     // minWidth: 'fit-content'
+})
+
+const hideOnMobile = css({
+    '@media(max-width: 1000px)': {
+        display: 'none',
+    }
 })
 
 
 const history = css({
     width: '100%',
+    maxWidth: '600px',
+    // textAlign: 'center',
+    '& ul': {
+        maxWidth: '100%',
+        //width: 'fit-content',
+        margin: '0 auto'
+    },
     '& ul li': {
         listStyleType: 'none',
         position: 'relative',
@@ -56,49 +72,59 @@ const history = css({
         '& div': {
             position: 'relative',
             bottom: '0',
-            width: rhythm(10),
+            width: '90vw',
+            maxWidth: rhythm(20),
             padding: rhythm(1),
         }
     }
 })
 
-const buttonStyle= css({
+const buttonStyle = css({
     color: '#333',
-    border: '1px solid #ffdf00',
+    // border: '1px solid #ffdf00',
     margin: rhythm(0.5),
     padding: rhythm(.25),
     backgroundColor: '#ffdf00',
     transition: 'background .1s linear',
+    maxWidth: 'fit-content',
+    height: 'fit-content',
+    borderRadius: '4px',
+    border: '3px solid #333',
     ':hover': {
         backgroundColor: '#ffdf00',
         fontWeight: 'bold',
     },
 })
 
-const AboutGrid = ({ posts, aboutText}) => {
+const imgContainer = css({
+    minWidth: '100%'
+})
+
+const AboutGrid = ({ aboutText, bannerSizes, lastImageSizes }) => {
     return (
         <div css={container}>
-            <div css={infoSection} style={{maxWidth: '600px',}}>
+            <div css={infoSection} style={{ maxWidth: '600px', }}>
                 <h1>About Me</h1>
                 <p>I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and tech junkie.</p>
                 <p>I am an incoming software engineer at Capital One, and a freelance web developer. </p>
-                <p>When I'm not working hard with the cutting edge technology, you can find me sneaker shopping, reading, or playing Spikeball.</p>
+                <p>When I'm not working hard with cutting edge technology, you can find me sneaker shopping, reading, or playing Spikeball.</p>
                 <p>I am always open to new opportunities and interesting projects. Don't hesitate to <Link to='/contact'>contact me!</Link></p>
-                <br/>
             </div>
-            <div css={infoSection}>
+            <div css={[infoSection, hideOnMobile, {width: '380px'}]}>
                 <h3>What I'm Listening to</h3>
-                <iframe src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3" width="100%" height="380" frameBorder="0" allowTransparency="true"></iframe>            
+                <iframe src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3" width="100%" height="380" frameBorder="0" allowTransparency="true"></iframe>
             </div>
-            <img style={{maxWidth: '100%'}}src={shoeSrc} />
+            <div css={imgContainer}>
+                <Img sizes={bannerSizes} />
+            </div>
             <div css={history}>
                 <h1>My Journey</h1>
                 <ul>
                     <li><div>
-                            <time>2014-2018</time>
-                            <h3>Vanderbilt University</h3>
-                            <p>I am finishing up my degree at Vanderbilt University. I studied computer science, classical guitar, and engineering management.</p>
-                        </div></li>
+                        <time>2014-2018</time>
+                        <h3>Vanderbilt University</h3>
+                        <p>I am finishing up my degree at Vanderbilt University. I studied computer science, classical guitar, and engineering management.</p>
+                    </div></li>
                     <li><div>
                         <time>2016</time>
                         <h3>Faithlife Inc.</h3>
@@ -107,21 +133,24 @@ const AboutGrid = ({ posts, aboutText}) => {
                     <li><div>
                         <time>2017 - present</time>
                         <h3>Capital One</h3>
-                        <p>I spent the summer of 2017 at Capital One building full stack web applications for Tech College. I'll be returning full time in September.</p>
+                        <p>I spent the summer of 2017 at Capital One building full stack web applications for <a href="https://blogs.wsj.com/cio/2017/10/03/capital-one-wants-to-train-all-employees-in-technology/">Tech College</a>. I'll be returning full time in September.</p>
                     </div></li>
                 </ul>
             </div>
-            <div css={infoSection}>
-                <img src={longPicSrc} />
+            <div css={{ width: '400px', display: 'grid', alignItems: 'center' }}>
+                <Img sizes={lastImageSizes} />
             </div>
-            <div css={infoSection}>
-                <h1>Learn More!</h1>
-                <Link css={buttonStyle} to='/contact'>Contact Me</Link>
-                <Link css={buttonStyle} to='/blog'>Read My Blog</Link>
-                <Link css={buttonStyle} to='/projects'>See My Work</Link>
+            <div css={[infoSection, {flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center'}]}>
+                {/* <h1>Learn More!</h1> */}
+                <div css={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+                    <Link css={buttonStyle} to='/contact'>Contact Me</Link>
+                    <Link css={buttonStyle} to='/blog'>Read My Blog</Link>
+                    <Link css={buttonStyle} to='/projects'>See My Work</Link>
+                </div>
             </div>
         </div>
     )
 }
 
 export default AboutGrid
+

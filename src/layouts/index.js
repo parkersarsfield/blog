@@ -4,7 +4,7 @@ import { css, link } from 'glamor'
 import typo, { rhythm, options } from '../utils/typography'
 
 import cdn from '../utils/cdn'
-
+import Header from '../components/Header'
 import './index.css'
 
 const outerStyle = css({
@@ -13,41 +13,6 @@ const outerStyle = css({
     padding: rhythm(1),
     paddingTop: rhythm(1),
 })
-
-const headerBoxStyle = css({
-    borderBottom: '1px solid #bbb',
-    marginBottom: rhythm(1),
-    fontStyle: 'normal',
-    display: 'flex',
-})
-
-const linkStyle = css({
-    display: 'flex',
-    flexDirection: 'column',
-    flex: '1',
-    textAlign: 'right',
-    justifyContent: 'center',
-    margin: 0,
-})
-
-const LinkButton = ({ name, slug }) => (
-    <Link css={{ color: options.headerColor, marginLeft: rhythm(.5) }} to={slug}>{name}</Link>
-)
-
-const Header = ({ title }) => (
-    <div css={headerBoxStyle}>
-        <Link to="/">
-            <h1>{title}</h1>
-        </Link>
-        <div css={linkStyle}>
-            <h3>
-                <LinkButton name={'About'} slug={'/about/'} />
-                <LinkButton name={'Projects'} slug={'/projects/'} />
-            </h3>
-        </div>
-    </div>
-)
-
 
 const sidebarStyle = css({
     position: 'absolute',
@@ -90,7 +55,7 @@ export default ({ children, data, location }) => {
     } else {
     return (
         <div css={outerStyle}>
-            <Header title={data.site.siteMetadata.title} />
+            <Header title={data.site.siteMetadata.title} isFrotPage={false}/>
             {children()}
             <Sidebar position="left">
                 {<img css={headshotStyle} src={cdn.nyc} />}
