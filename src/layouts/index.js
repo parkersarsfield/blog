@@ -4,48 +4,19 @@ import { css, link } from 'glamor'
 import typo, { rhythm, options } from '../utils/typography'
 
 import cdn from '../utils/cdn'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import './index.css'
 
 const outerStyle = css({
     margin: '0 auto',
     maxWidth: 800,
     padding: rhythm(1),
-    paddingTop: rhythm(1),
-})
-
-const headerBoxStyle = css({
-    borderBottom: '1px solid #bbb',
-    marginBottom: rhythm(1),
-    fontStyle: 'normal',
-    display: 'flex',
-})
-
-const linkStyle = css({
+    paddingBottom: 0,
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    flex: '1',
-    textAlign: 'right',
-    justifyContent: 'center',
-    margin: 0,
 })
-
-const LinkButton = ({ name, slug }) => (
-    <Link css={{ color: options.headerColor, marginLeft: rhythm(.5) }} to={slug}>{name}</Link>
-)
-
-const Header = ({ title }) => (
-    <div css={headerBoxStyle}>
-        <Link to="/">
-            <h1>{title}</h1>
-        </Link>
-        <div css={linkStyle}>
-            <h3>
-                <LinkButton name={'About'} slug={'/about/'} />
-                <LinkButton name={'Projects'} slug={'/projects/'} />
-            </h3>
-        </div>
-    </div>
-)
-
 
 const sidebarStyle = css({
     position: 'absolute',
@@ -81,22 +52,20 @@ const Sidebar = ({ children, position }) => {
 export default ({ children, data, location }) => {
     if (location.pathname === '/') {
         return (
-        <div>
-            {children()}
+        <div css={{display: 'flex', minHeight: '100%', flexDirection: 'column'}}>
+            <div css={{flex: '1 0 auto', minHeight: 'fit-content'}}>
+                {children()}
+            </div>
         </div>
         )
     } else {
     return (
         <div css={outerStyle}>
-            <Header title={data.site.siteMetadata.title} />
+            <div css={{flex: '1',}}>
+            <Header title={data.site.siteMetadata.title} isFrotPage={false}/>
             {children()}
-            <Sidebar position="left">
-                {<img css={headshotStyle} src={cdn.nyc} />}
-            </Sidebar>
-
-            <Sidebar position="right">
-                {<div>hello</div>}
-            </Sidebar>
+            </div>
+            <Footer />
         </div>
     )}
 }

@@ -1,9 +1,10 @@
 import Typography from 'typography'
 import judahTheme from 'typography-theme-judah'
 
-judahTheme.headerFontFamily = ['Carrois Gothic SC', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
+judahTheme.headerFontFamily = ['Open Sans', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
+judahTheme.bodyFontFamily = ['Open Sans', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
 judahTheme.googleFonts = [{
-    name: 'Carrois Gothic SC',
+    name: 'Open Sans',
     styles: ['400']
 }]
 
