@@ -111,7 +111,7 @@ const container = css({
 const Typer = ({ config, textList, restart }) => {
     return (
         <Typist {...config}>
-            {textList.map(thing => <span>{thing}<Typist.Backspace delay={2000} count={thing.length + 1} /></span>)}
+            {textList.map(thing => <span key={thing}>{thing}<Typist.Backspace delay={2000} count={thing.length + 1} /></span>)}
         </Typist>
     )
 }

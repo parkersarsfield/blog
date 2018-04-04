@@ -29,7 +29,6 @@ const infoSection = css({
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
-    // minWidth: 'fit-content'
 })
 
 const hideOnMobile = css({
@@ -42,10 +41,8 @@ const hideOnMobile = css({
 const history = css({
     width: '100%',
     maxWidth: '600px',
-    // textAlign: 'center',
     '& ul': {
         maxWidth: '100%',
-        //width: 'fit-content',
         margin: '0 auto'
     },
     '& ul li': {
