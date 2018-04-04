@@ -113,7 +113,7 @@ const Header = ({ title, isFrontPage }) => (
         <div css={linkStyle}>
             <h3>
                 <LinkButton name={'Blog'} slug={'/blog'} />
-                <LinkButton name={'Projects'} slug={'/projects/'} />
+                <LinkButton name={'Projects'} slug={'/projects'} />
                 <LinkButton name={'Contact'} slug={'/contact'} />
             </h3>
         </div>

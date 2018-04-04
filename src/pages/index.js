@@ -10,6 +10,7 @@ import 'react-typist/dist/Typist.css'
 
 import AboutGrid from '../components/AboutGrid'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 
 const heroStyle = css({
@@ -140,11 +141,6 @@ export default class IndexPage extends React.Component {
         return (
             <div css={container}>
                 <div css={heroStyle}>
-                    {/* <div css={navStyle}>
-                        <Link css={pageLinkStyle} to="/contact">Contact</Link>
-                        <Link css={pageLinkStyle} to="/blog">Blog</Link>
-                        <Link css={pageLinkStyle} to="/projects">Projects</Link>
-                    </div> */}
                     <Header title={'Parker Sarsfield'} isFrontPage={true}/>
 
                     <div css={contentStyle}>
@@ -158,6 +154,7 @@ export default class IndexPage extends React.Component {
                     </div>
                 </div>
                 <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageSizes={this.props.data.lastImage.sizes} />
+                <Footer />
             </div>
         )
     }

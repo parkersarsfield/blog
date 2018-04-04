@@ -5,13 +5,17 @@ import typo, { rhythm, options } from '../utils/typography'
 
 import cdn from '../utils/cdn'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import './index.css'
 
 const outerStyle = css({
     margin: '0 auto',
     maxWidth: 800,
     padding: rhythm(1),
-    paddingTop: rhythm(1),
+    paddingBottom: 0,
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
 })
 
 const sidebarStyle = css({
@@ -48,22 +52,20 @@ const Sidebar = ({ children, position }) => {
 export default ({ children, data, location }) => {
     if (location.pathname === '/') {
         return (
-        <div>
-            {children()}
+        <div css={{display: 'flex', minHeight: '100%', flexDirection: 'column'}}>
+            <div css={{flex: '1 0 auto', minHeight: 'fit-content'}}>
+                {children()}
+            </div>
         </div>
         )
     } else {
     return (
         <div css={outerStyle}>
+            <div css={{flex: '1',}}>
             <Header title={data.site.siteMetadata.title} isFrotPage={false}/>
             {children()}
-            <Sidebar position="left">
-                {<img css={headshotStyle} src={cdn.nyc} />}
-            </Sidebar>
-
-            <Sidebar position="right">
-                {<div>hello</div>}
-            </Sidebar>
+            </div>
+            <Footer />
         </div>
     )}
 }
