@@ -5,7 +5,6 @@ import FontAwesome from 'react-fontawesome'
 import faStyles from 'font-awesome/css/font-awesome.css'
 
 const formStyle = css({
-    width: '50%',
     padding: rhythm(1),
     minWidth: '300px',
     '& label': {
@@ -21,14 +20,12 @@ const formStyle = css({
         height: rhythm(4),
         border: '1px solid lightgrey',
     },
-    '@media(max-width: 700px)': {
-        width: '100%',
-        padding: 0,
+    '& p:last-of-type': {
+        textAlign: 'center',
     }
 })
 
 const linksStyle = css({
-    width: '50%',
     padding: rhythm(1),
     '@media(max-width: 600px)': {
         width: '100%',
@@ -42,6 +39,7 @@ const linksStyle = css({
 const containerStyle = css({
     width: '100%',
     display: 'flex',
+    flexDirection: 'column',
     flexWrap: 'wrap',
     padding: rhythm(1),
     justifyContent: 'center',
@@ -63,10 +61,8 @@ const linkStyle = css({
         marginRight: rhythm(.5)
     },
     '& span:last-of-type': {
-        maxWidth: '0',
         overflow: 'hidden',
         maxHeight: rhythm(1),
-        transition: 'max-width .25s',
     },
     '&:hover span:last-of-type': {
         maxWidth: '100%',
