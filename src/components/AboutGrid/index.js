@@ -97,7 +97,7 @@ const imgContainer = css({
     minWidth: '100%'
 })
 
-const AboutGrid = ({ aboutText, bannerSizes, lastImageSizes }) => {
+const AboutGrid = ({ aboutText, bannerSizes, lastImageResolutions }) => {
     return (
         <div css={container}>
             <div css={infoSection} style={{ maxWidth: '600px', }}>
@@ -134,8 +134,8 @@ const AboutGrid = ({ aboutText, bannerSizes, lastImageSizes }) => {
                     </div></li>
                 </ul>
             </div>
-            <div css={{ width: '400px', display: 'grid', alignItems: 'center' }}>
-                <Img sizes={lastImageSizes} />
+            <div css={{ width: '400px', display: 'flex', alignItems: 'center' }}>
+                <Img css={{maxWidth: '100%'}} resolutions={lastImageResolutions} />
             </div>
             <div css={[infoSection, {flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center'}]}>
                 {/* <h1>Learn More!</h1> */}
