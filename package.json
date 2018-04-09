@@ -16,6 +16,7 @@
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-glamor": "^1.6.9",
+    "gatsby-plugin-google-analytics": "^1.0.28",
     "gatsby-plugin-google-fonts": "^0.0.3",
     "gatsby-plugin-sharp": "^1.6.41",
     "gatsby-plugin-typography": "^1.7.10",

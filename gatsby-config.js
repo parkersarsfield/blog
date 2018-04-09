@@ -24,6 +24,15 @@ module.exports = {
                 fonts: ['Open Sans']
             }
         },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+              trackingId: "UA-117186698-1",
+              head: false,
+              anonymize: true,
+              respectDNT: true,
+            },
+          },
         'gatsby-plugin-glamor',
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
