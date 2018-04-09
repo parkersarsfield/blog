@@ -153,7 +153,7 @@ export default class IndexPage extends React.Component {
                 </div>
                     </div>
                 </div>
-                <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageResolutions={this.props.data.lastImage.resolutions} />
+                <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageSizes={this.props.data.lastImage.sizes} />
                 <Footer />
             </div>
         )
@@ -168,8 +168,8 @@ query IndexQuery {
       }
     },
     lastImage: imageSharp(id: { regex: "/nyc.jpg/" }) {
-        resolutions(width: 350) {
-          ...GatsbyImageSharpResolutions_tracedSVG
+        sizes(maxWidth: 350) {
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
   }
