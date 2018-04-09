@@ -72,15 +72,13 @@ const pageLinkStyle = css({
 })
 
 const scrollButton = css({
-    background: '#ffdf00',
     position: 'absolute',
     bottom: '0',
     zIndex: '1',
     left: 0,
     right: 0,
     margin: `${rhythm(1)} auto`,
-    width: '10rem',
-    borderRadius: '1000px',
+    maxWidth: '8rem',
     display: 'flex',
     flexDirection: 'column',
     fontSize: rhythm(.5),
@@ -98,7 +96,21 @@ const scrollButton = css({
         left: 0,
         right: 0,
         position: 'relative',
-    }
+    },
+    color: '#333',
+    padding: '0 ' + rhythm(.25),
+    backgroundColor: '#ffdf00',
+    transition: 'max-width .1s linear',
+    // maxWidth: 'fit-content',
+    height: 'fit-content',
+    borderRadius: '4px',
+    border: '2px solid #333',
+    ':hover': {
+        fontWeight: 'bold',
+        maxWidth: '10rem',
+        cursor: 'pointer'
+    },
+
 })
 
 
@@ -125,6 +137,11 @@ export default class IndexPage extends React.Component {
         }
     }
 
+    scrollToAboutSection() {
+        // the about section starts at 100% of the height of the screen (window.innerHeight)
+        window.scrollTo(0, window.innerHeight)
+    }
+
     render() {
         const thingsIAm = ['software engineer', 'sneakerhead', 'front-end developer', 'musician']
 
@@ -137,7 +154,7 @@ export default class IndexPage extends React.Component {
             avgTypingDelay: 100,
             onTypingDone: restart,
         }
-
+        
         return (
             <div css={container}>
                 <div css={heroStyle}>
@@ -147,10 +164,8 @@ export default class IndexPage extends React.Component {
                         <p>Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am a:</p>
                         {this.state.isTyping ? <Typer config={typerConfig} textList={thingsIAm} /> : null}
                     </div>
-                    <div css={scrollButton}>
-                        <div>
-                            About Me
-                </div>
+                    <div css={scrollButton} onClick={this.scrollToAboutSection}>
+                        <div>About Me</div>
                     </div>
                 </div>
                 <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageSizes={this.props.data.lastImage.sizes} />
