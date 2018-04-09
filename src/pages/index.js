@@ -23,6 +23,7 @@ const heroStyle = css({
     flexDirection: 'column',
     textAlign: 'center',
     background: '#000',
+    zIndex: '-1',
     ':after': {
         content: ' ',
         position: 'absolute',
@@ -74,7 +75,7 @@ const pageLinkStyle = css({
 const scrollButton = css({
     position: 'absolute',
     bottom: '0',
-    zIndex: '1',
+    // zIndex: '1',
     left: 0,
     right: 0,
     margin: `${rhythm(1)} auto`,
@@ -83,6 +84,7 @@ const scrollButton = css({
     flexDirection: 'column',
     fontSize: rhythm(.5),
     justifyContent: 'center',
+    alignItems: 'center',
     fontWeight: 'light',
     ':after': {
         content: ' ',
@@ -110,7 +112,6 @@ const scrollButton = css({
         maxWidth: '10rem',
         cursor: 'pointer'
     },
-
 })
 
 
@@ -133,7 +134,7 @@ export default class IndexPage extends React.Component {
         super(props)
 
         this.state = {
-            isTyping: true
+            isTyping: true,
         }
     }
 
@@ -143,6 +144,7 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const thingsIAm = ['software engineer', 'sneakerhead', 'front-end developer', 'musician']
 
         const restart = () => {
@@ -154,20 +156,20 @@ export default class IndexPage extends React.Component {
             avgTypingDelay: 100,
             onTypingDone: restart,
         }
-        
+
         return (
             <div css={container}>
+                <div css={scrollButton} onClick={this.scrollToAboutSection}>
+                    About Me
+                </div>
+                <Header title={'Parker Sarsfield'} isFrontPage={true} isModalOpen={this.props.isModalOpen} closeMenu={this.props.closeMenu} openMenu={this.props.openMenu}/>
                 <div css={heroStyle}>
-                    <Header title={'Parker Sarsfield'} isFrontPage={true}/>
-
                     <div css={contentStyle}>
                         <p>Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am a:</p>
                         {this.state.isTyping ? <Typer config={typerConfig} textList={thingsIAm} /> : null}
                     </div>
-                    <div css={scrollButton} onClick={this.scrollToAboutSection}>
-                        <div>About Me</div>
-                    </div>
                 </div>
+
                 <AboutGrid bannerSizes={this.props.data.shoeImage.sizes} lastImageSizes={this.props.data.lastImage.sizes} />
                 <Footer />
             </div>
