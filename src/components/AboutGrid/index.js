@@ -62,6 +62,7 @@ const history = css({
             height: '30px',
             borderRadius: '50%',
             background: '#ffdf00',
+            border: '2px solid #333',
         },
         ':last-child::after': {
             background: '#4bb543',
@@ -86,7 +87,7 @@ const buttonStyle = css({
     maxWidth: 'fit-content',
     height: 'fit-content',
     borderRadius: '4px',
-    border: '3px solid #333',
+    border: '2px solid #333',
     ':hover': {
         backgroundColor: '#ffdf00',
         fontWeight: 'bold',
