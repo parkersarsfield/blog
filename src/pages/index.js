@@ -168,7 +168,7 @@ query IndexQuery {
       }
     },
     lastImage: imageSharp(id: { regex: "/nyc.jpg/" }) {
-        sizes(maxWidth: 1000) {
+        sizes(maxWidth: 350) {
           ...GatsbyImageSharpSizes_tracedSVG
         }
       }

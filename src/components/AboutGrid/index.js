@@ -134,7 +134,7 @@ const AboutGrid = ({ aboutText, bannerSizes, lastImageSizes }) => {
                     </div></li>
                 </ul>
             </div>
-            <div css={{ width: '400px', display: 'grid', alignItems: 'center' }}>
+            <div css={{ width: '400px', display: 'flex', alignItems: 'center', minHeight: '525px', maxWidth: '100%', '& div': {width: '100%'} }}>
                 <Img sizes={lastImageSizes} />
             </div>
             <div css={[infoSection, {flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center'}]}>
