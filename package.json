@@ -6,7 +6,9 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "bd": "gatsby build && surge ./public",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "prettify":
+      "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -18,6 +20,7 @@
     "gatsby-plugin-glamor": "^1.6.9",
     "gatsby-plugin-google-analytics": "^1.0.28",
     "gatsby-plugin-google-fonts": "^0.0.3",
+    "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-sharp": "^1.6.41",
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.9",
@@ -25,9 +28,13 @@
     "gatsby-transformer-sharp": "^1.6.22",
     "npm": "^5.8.0",
     "react-fontawesome": "^1.6.1",
+    "react-helmet": "^5.2.0",
     "react-typist": "^2.0.4",
     "react-typist-loop": "0.0.5",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
+  },
+  "devDependencies": {
+    "prettier": "1.11.1"
   }
 }
