@@ -6,15 +6,15 @@ import FontAwesome from 'react-fontawesome'
 import faStyles from 'font-awesome/css/font-awesome.css'
 
 const footerStyle = css({
-    flexShrink: '0',
-    display: 'flex',
-    justifyContent: 'center'
+  flexShrink: '0',
+  display: 'flex',
+  justifyContent: 'center',
 })
 
 const Footer = () => (
-    <div css={footerStyle}>
-        <span>&copy; {new Date().getFullYear()} Parker Sarsfield</span>
-    </div>
+  <div css={footerStyle}>
+    <span>&copy; {new Date().getFullYear()} Parker Sarsfield</span>
+  </div>
 )
 
 export default Footer

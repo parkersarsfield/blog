@@ -6,7 +6,9 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "bd": "gatsby build && surge ./public",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "prettify":
+      "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -29,5 +31,8 @@
     "react-typist-loop": "0.0.5",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
+  },
+  "devDependencies": {
+    "prettier": "1.11.1"
   }
 }
