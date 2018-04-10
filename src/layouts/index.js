@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css, link } from 'glamor'
 import typo, { rhythm, options } from '../utils/typography'
+import { Helmet } from 'react-helmet'
 
 import cdn from '../utils/cdn'
 import Header from '../components/Header'
@@ -15,7 +16,7 @@ const outerStyle = css({
   paddingBottom: 0,
   minHeight: '100vh',
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'column'
 })
 
 const sidebarStyle = css({
@@ -28,14 +29,14 @@ const sidebarStyle = css({
   width: '12rem',
   padding: rhythm(0.5),
   '@media(max-width: 1200px)': {
-    display: 'none',
+    display: 'none'
   },
-  textAlign: 'center',
+  textAlign: 'center'
 })
 
 const headshotStyle = css({
   borderRadius: '100%',
-  width: '100%',
+  width: '100%'
 })
 
 const Sidebar = ({ children, position }) => {
@@ -46,12 +47,22 @@ const Sidebar = ({ children, position }) => {
   return <div css={sidebarStyle} />
 }
 
+const HeadData = () => (
+  <Helmet
+    htmlAttributes={{
+      lang: 'en'
+    }}
+    title={'Parker Sarsfield'}
+  />
+)
+
 export default ({ children, data, location }) => {
   if (location.pathname === '/') {
     return (
       <div
         css={{ display: 'flex', minHeight: '100%', flexDirection: 'column' }}
       >
+        <HeadData />
         <div css={{ flex: '1 0 auto', minHeight: 'fit-content' }}>
           {children()}
         </div>
@@ -60,6 +71,7 @@ export default ({ children, data, location }) => {
   } else {
     return (
       <div css={outerStyle}>
+        <HeadData />
         <div css={{ flex: '1' }}>
           <Header title={data.site.siteMetadata.title} isFrotPage={false} />
           {children()}
