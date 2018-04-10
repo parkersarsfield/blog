@@ -10,30 +10,30 @@ const formStyle = css({
   '& label': {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
+    width: '100%'
   },
   '& input': {
-    border: '1px solid lightgrey',
+    border: '1px solid lightgrey'
   },
   '& textarea': {
     resize: 'none',
     height: rhythm(4),
-    border: '1px solid lightgrey',
+    border: '1px solid lightgrey'
   },
   '& p:last-of-type': {
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 })
 
 const linksStyle = css({
   padding: rhythm(1),
   '@media(max-width: 600px)': {
     width: '100%',
-    padding: 0,
+    padding: 0
   },
   display: 'flex',
   flexDirection: 'column',
-  alignContent: 'center',
+  alignContent: 'center'
 })
 
 const containerStyle = css({
@@ -45,8 +45,8 @@ const containerStyle = css({
   justifyContent: 'center',
   '@media(max-width: 600px)': {
     width: '100%',
-    padding: 0,
-  },
+    padding: 0
+  }
 })
 
 const linkStyle = css({
@@ -58,15 +58,15 @@ const linkStyle = css({
   justifyContent: 'center',
   overflow: 'hidden',
   '& .fa': {
-    marginRight: rhythm(0.5),
+    marginRight: rhythm(0.5)
   },
   '& span:last-of-type': {
     overflow: 'hidden',
-    maxHeight: rhythm(1),
+    maxHeight: rhythm(1)
   },
   '&:hover span:last-of-type': {
-    maxWidth: '100%',
-  },
+    maxWidth: '100%'
+  }
 })
 
 const SocialLink = ({ url, icon, text }) => (
@@ -81,22 +81,23 @@ const Contact = () => {
     {
       url: 'https://github.com/parkersarsfield',
       icon: 'github',
-      text: 'Clone my code.',
+      text: 'Clone my code.'
     },
     {
       url: 'https://www.linkedin.com/in/parker-sarsfield-bb978b118/',
       icon: 'linkedin',
-      text: 'Connect with me.',
+      text: 'Connect with me.'
     },
     {
       url: 'https://www.twitter.com/parkersarsfield/',
       icon: 'twitter',
-      text: 'Follow me.',
-    },
+      text: 'Follow me.'
+    }
   ]
 
   return (
     <div css={containerStyle}>
+      <h1>Contact Me</h1>
       <div css={formStyle}>
         <form name="contact" method="POST" netlify>
           <p>
