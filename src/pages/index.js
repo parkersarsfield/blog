@@ -171,6 +171,7 @@ export default class IndexPage extends React.Component {
           About Me
         </div>
         <Header
+          logo={this.props.data.logo.resolutions}
           title={'Parker Sarsfield'}
           isFrontPage={true}
           isModalOpen={this.props.isModalOpen}
@@ -227,6 +228,11 @@ export const query = graphql`
       }
     }
     capitalone: imageSharp(id: { regex: "/cap1.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+    logo: imageSharp(id: { regex: "/logo.png/" }) {
       resolutions(width: 50) {
         ...GatsbyImageSharpResolutions_tracedSVG
       }
