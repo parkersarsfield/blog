@@ -31,8 +31,8 @@ const heroStyle = css({
     height: '100%',
     background: `url(${bg})`,
     backgroundPosition: 'center',
-    opacity: '.2',
-  },
+    opacity: '.2'
+  }
 })
 
 const contentStyle = css({
@@ -42,7 +42,7 @@ const contentStyle = css({
   textAlign: 'center',
   fontWeight: 'lighter',
   fontSize: rhythm(1),
-  maxWidth: '100%',
+  maxWidth: '100%'
 })
 
 const navStyle = css({
@@ -55,7 +55,7 @@ const navStyle = css({
   margin: '0 auto',
   left: 0,
   right: 0,
-  textAlign: 'right',
+  textAlign: 'right'
 })
 
 const pageLinkStyle = css({
@@ -67,8 +67,8 @@ const pageLinkStyle = css({
   transition: 'background .1s linear',
   ':hover': {
     backgroundColor: '#ffdf00',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 })
 
 const scrollButton = css({
@@ -96,7 +96,7 @@ const scrollButton = css({
     margin: '0 auto 10px auto',
     left: 0,
     right: 0,
-    position: 'relative',
+    position: 'relative'
   },
   color: '#333',
   padding: '0 ' + rhythm(0.25),
@@ -109,14 +109,14 @@ const scrollButton = css({
   ':hover': {
     fontWeight: 'bold',
     maxWidth: '10rem',
-    cursor: 'pointer',
-  },
+    cursor: 'pointer'
+  }
 })
 
 const container = css({
   position: 'absolute',
   width: '100%',
-  height: '100%',
+  height: '100%'
 })
 
 const Typer = ({ config, textList, restart }) => {
@@ -137,7 +137,7 @@ export default class IndexPage extends React.Component {
     super(props)
 
     this.state = {
-      isTyping: true,
+      isTyping: true
     }
   }
 
@@ -152,7 +152,7 @@ export default class IndexPage extends React.Component {
       'software engineer',
       'sneakerhead',
       'front-end developer',
-      'musician',
+      'musician'
     ]
 
     const restart = () => {
@@ -162,7 +162,7 @@ export default class IndexPage extends React.Component {
 
     const typerConfig = {
       avgTypingDelay: 100,
-      onTypingDone: restart,
+      onTypingDone: restart
     }
 
     return (
@@ -192,6 +192,11 @@ export default class IndexPage extends React.Component {
         <AboutGrid
           bannerSizes={this.props.data.shoeImage.sizes}
           lastImageSizes={this.props.data.lastImage.sizes}
+          timelineImages={{
+            faithlife: this.props.data.faithlife.resolutions,
+            vandy: this.props.data.vandy.resolutions,
+            capitalone: this.props.data.capitalone.resolutions
+          }}
         />
         <Footer />
       </div>
@@ -209,6 +214,21 @@ export const query = graphql`
     lastImage: imageSharp(id: { regex: "/nyc.jpg/" }) {
       sizes(maxWidth: 350) {
         ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    faithlife: imageSharp(id: { regex: "/faithlife.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+    vandy: imageSharp(id: { regex: "/vandy.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+    capitalone: imageSharp(id: { regex: "/cap1.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
       }
     }
   }
