@@ -21,24 +21,13 @@ const heroStyle = css({
   justifyContent: 'center',
   flexDirection: 'column',
   textAlign: 'center',
-  background: '#000',
-  zIndex: '-1',
-  ':after': {
-    content: ' ',
-    position: 'absolute',
-    top: 0,
-    width: '100%',
-    height: '100%',
-    background: `url(${bg})`,
-    backgroundPosition: 'center',
-    opacity: '.2'
-  }
+  zIndex: '-1'
 })
 
 const contentStyle = css({
   width: '100%',
   position: 'absolute',
-  color: '#eee',
+  color: '#333',
   textAlign: 'center',
   fontWeight: 'lighter',
   fontSize: rhythm(1),

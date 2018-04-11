@@ -47,19 +47,7 @@ frontPage = Object.assign(frontPage, {
   maxWidth: 800,
   padding: rhythm(1),
   paddingTop: '0',
-  top: rhythm(1),
-  '& h1': {
-    ...frontPage['& h1'],
-    color: '#eee'
-  },
-  '& h3 a': {
-    ...frontPage['& h3 a'],
-    color: '#eee'
-  },
-  '& span:last-of-type': {
-    ...frontPage['a span'],
-    color: '#ffdf00'
-  }
+  top: rhythm(1)
 })
 
 const frontPageStyle = css(frontPage)
