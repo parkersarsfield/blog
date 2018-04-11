@@ -21,24 +21,13 @@ const heroStyle = css({
   justifyContent: 'center',
   flexDirection: 'column',
   textAlign: 'center',
-  background: '#000',
-  zIndex: '-1',
-  ':after': {
-    content: ' ',
-    position: 'absolute',
-    top: 0,
-    width: '100%',
-    height: '100%',
-    background: `url(${bg})`,
-    backgroundPosition: 'center',
-    opacity: '.2'
-  }
+  zIndex: '-1'
 })
 
 const contentStyle = css({
   width: '100%',
   position: 'absolute',
-  color: '#eee',
+  color: '#333',
   textAlign: 'center',
   fontWeight: 'lighter',
   fontSize: rhythm(1),
@@ -171,6 +160,7 @@ export default class IndexPage extends React.Component {
           About Me
         </div>
         <Header
+          logo={this.props.data.logo.resolutions}
           title={'Parker Sarsfield'}
           isFrontPage={true}
           isModalOpen={this.props.isModalOpen}
@@ -227,6 +217,11 @@ export const query = graphql`
       }
     }
     capitalone: imageSharp(id: { regex: "/cap1.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+    logo: imageSharp(id: { regex: "/logo.png/" }) {
       resolutions(width: 50) {
         ...GatsbyImageSharpResolutions_tracedSVG
       }

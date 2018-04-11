@@ -4,38 +4,7 @@ import { rhythm, options } from '../utils/typography'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 import faStyles from 'font-awesome/css/font-awesome.css'
-
-// const headerBoxStyle = css({
-//     borderBottom: '1px solid #bbb',
-//     marginBottom: rhythm(1),
-//     fontStyle: 'normal',
-//     display: 'flex',
-//     alignItems: 'center',
-//     paddingBottom: rhythm(1),
-//     zIndex: '1',
-//     '& a': {
-//         flex: '1',
-//     },
-//     '& h1': {
-//         margin: '0',
-//     },
-//     '& h3': {
-//         margin: '0',
-//     },
-//     '@media(max-width: 800px)': {
-//         paddingBottom: rhythm(.5),
-//         borderBottom: 'none',
-//         '& div': {
-//             display: 'none',
-//         },
-//         '& div:last-of-type': {
-//             display: 'block',
-//         },
-//         '& h1': {
-//             fontSize: '1.5rem',
-//         },
-//     }
-// })
+import Img from 'gatsby-image'
 
 const baseHeaderStyle = {
   margin: `0 auto ${rhythm(1)} auto`,
@@ -49,25 +18,26 @@ const baseHeaderStyle = {
   maxWidth: '800px',
   paddingBottom: rhythm(1),
   '& h1': {
-    margin: '0',
+    margin: '0'
   },
   '& h3': {
-    margin: 0,
+    margin: 0
   },
   '& h3 a': {
-    flex: '1',
+    flex: '1'
   },
   '& a': {
     flex: '1',
-    textAlign: 'left',
+    textAlign: 'left'
   },
   '@media(max-width: 800px)': {
     paddingBottom: rhythm(0.5),
     borderBottom: 'none',
     '& h1': {
-      fontSize: '1.5rem',
-    },
-  },
+      //fontSize: '1.5rem'
+      display: 'none'
+    }
+  }
 }
 
 let frontPage = Object.assign({}, baseHeaderStyle)
@@ -77,19 +47,7 @@ frontPage = Object.assign(frontPage, {
   maxWidth: 800,
   padding: rhythm(1),
   paddingTop: '0',
-  top: rhythm(1),
-  '& h1': {
-    ...frontPage['& h1'],
-    color: '#eee',
-  },
-  '& h3 a': {
-    ...frontPage['& h3 a'],
-    color: '#eee',
-  },
-  '& span:last-of-type': {
-    ...frontPage['a span'],
-    color: '#ffdf00',
-  },
+  top: rhythm(1)
 })
 
 const frontPageStyle = css(frontPage)
@@ -103,7 +61,7 @@ const darkZone = css({
   top: 0,
   left: 0,
   background: '#000',
-  opacity: '.8',
+  opacity: '.8'
 })
 
 const linkStyle = css({
@@ -115,14 +73,14 @@ const linkStyle = css({
   margin: 0,
   '& a': {
     '&:hover': {
-      borderBottom: '2px solid #ffdf00',
-    },
+      borderBottom: '2px solid #ffdf00'
+    }
   },
   '@media(max-width: 800px)': {
     '& h3': {
-      display: 'none',
-    },
-  },
+      display: 'none'
+    }
+  }
 })
 
 const openLinkStyle = css({
@@ -145,17 +103,17 @@ const openLinkStyle = css({
         alignItems: 'center',
         justifyContent: 'center',
         margin: '0',
-        zIndex: 1,
-      },
-    },
-  },
+        zIndex: 1
+      }
+    }
+  }
 })
 
 const slideButton = css({
   '@media(min-width: 800px)': {
-    display: 'none',
+    display: 'none'
   },
-  display: 'block',
+  display: 'block'
 })
 
 const LinkButton = ({ name, slug, close }) => (
@@ -173,7 +131,7 @@ class Header extends React.Component {
     super(props)
 
     this.state = {
-      isMenuOpen: false,
+      isMenuOpen: false
     }
 
     this.openMenu = this.openMenu.bind(this)
@@ -182,20 +140,32 @@ class Header extends React.Component {
 
   openMenu() {
     this.setState({
-      isMenuOpen: true,
+      isMenuOpen: true
     })
   }
 
   closeMenu() {
     this.setState({
-      isMenuOpen: false,
+      isMenuOpen: false
     })
   }
 
   render() {
     return (
       <div css={this.props.isFrontPage ? frontPageStyle : newHeaderStyle}>
-        <Link css={{ border: 'none' }} to="/">
+        <Link
+          css={{
+            border: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            '& div:first-of-type': {
+              maxHeight: '50px',
+              marginRight: rhythm(0.5)
+            }
+          }}
+          to="/"
+        >
+          <Img resolutions={this.props.logo} />
           <h1>{this.props.title}</h1>
         </Link>
         <div css={this.state.isMenuOpen ? openLinkStyle : linkStyle}>

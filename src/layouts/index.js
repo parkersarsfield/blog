@@ -73,7 +73,11 @@ export default ({ children, data, location }) => {
       <div css={outerStyle}>
         <HeadData />
         <div css={{ flex: '1' }}>
-          <Header title={data.site.siteMetadata.title} isFrotPage={false} />
+          <Header
+            logo={data.logo.resolutions}
+            title={data.site.siteMetadata.title}
+            isFrontPage={false}
+          />
           {children()}
         </div>
         <Footer />
@@ -87,6 +91,11 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    logo: imageSharp(id: { regex: "/logo.png/" }) {
+      resolutions(width: 50) {
+        ...GatsbyImageSharpResolutions_tracedSVG
       }
     }
   }
