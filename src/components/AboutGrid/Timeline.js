@@ -3,6 +3,12 @@ import { css } from 'glamor'
 import { rhythm } from '../../utils/typography'
 import Img from 'gatsby-image'
 
+const pulse = css.keyframes('pulse', {
+  '0%': { transform: 'scale(1)' },
+  '50%': { transform: 'scale(1.25)' },
+  '100%': { transform: 'scale(1)' }
+})
+
 const timelineStyle = css({
   width: '100%',
   maxWidth: '600px',
@@ -30,7 +36,10 @@ const timelineStyle = css({
       border: '2px solid #333'
     },
     ':last-child::after': {
-      background: '#4bb543'
+      background: '#4bb543',
+      animation: `${pulse} 1.5s linear`,
+      animationIterationCount: 'infinite',
+      left: '-200%'
     },
     '& > div': {
       position: 'relative',
