@@ -99,15 +99,26 @@ const Contact = () => {
     <div css={containerStyle}>
       <h1>Contact Me</h1>
       <div css={formStyle}>
-        <form name="contact" method="POST" netlify>
-          <p>
+        <form
+          name="contact"
+          netlify-honeypot="bot-field"
+          method="POST"
+          action="contact-thanks"
+          netlify
+        >
+          <p css={{ display: 'none' }}>
             <label>
-              Your Name: <input type="text" name="name" />
+              Don’t fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
           <p>
             <label>
-              Your Email: <input type="email" name="email" />
+              Name: <input type="text" name="name" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Email: <input type="text" name="email" />
             </label>
           </p>
           <p>
