@@ -133,7 +133,7 @@ const Contact = () => {
       </div>
       <div css={linksStyle}>
         {socialSites.map(s => (
-          <SocialLink url={s.url} icon={s.icon} text={s.text} />
+          <SocialLink url={s.url} icon={s.icon} text={s.text} key={s.url} />
         ))}
       </div>
     </div>
