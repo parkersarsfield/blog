@@ -16,6 +16,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       name: 'type',
       value: node.frontmatter.type
     })
+
+    createNodeField({
+      node,
+      name: 'title',
+      value: node.frontmatter.title
+    })
   }
 }
 
@@ -30,6 +36,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               fields {
                 slug
                 type
+                title
               }
             }
           }
@@ -53,7 +60,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const prev =
             index === posts.length - 1 ? false : posts[index + 1].node
 
-          console.log(next, prev)
           createPage({
             path: node.fields.slug,
             component: path.resolve('./src/templates/blog-post.js'),
@@ -70,7 +76,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const prev =
             index === projects.length - 1 ? false : projects[index + 1].node
 
-          // console.log(next, prev)
           createPage({
             path: node.fields.slug,
             component: path.resolve('./src/templates/portfolio-post.js'),

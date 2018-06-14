@@ -3,6 +3,8 @@ import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 import { css } from 'glamor'
 import { rhythm } from '../utils/typography'
+import BackButton from '../components/BackButton'
+import PrevNextNav from '../components/PrevNextNav'
 const linkStyle = css({
   flex: 1,
   maxWidth: rhythm(5),
@@ -20,11 +22,13 @@ const linkStyle = css({
   }
 })
 
-export default ({ data }) => {
+export default ({ data, pathContext }) => {
+  console.log(pathContext)
   const projectHTML = data.markdownRemark.html
   const project = data.markdownRemark.frontmatter
   return (
     <div>
+      <BackButton to="/projects" />
       <h2 css={{ margin: '0' }}>{project.title}</h2>
       <p css={{ color: '#000' }}>{project.description}</p>
       <Img
@@ -49,6 +53,11 @@ export default ({ data }) => {
         <h3>About</h3>
         <div dangerouslySetInnerHTML={{ __html: projectHTML }} />
       </div>
+      <PrevNextNav
+        next={pathContext.next}
+        prev={pathContext.prev}
+        type="Project"
+      />
     </div>
   )
 }
