@@ -131,12 +131,14 @@ export default class IndexPage extends React.Component {
   }
 
   scrollToAboutSection() {
-    // the about section starts at 100% of the height of the screen (window.innerHeight)
-    window.scrollTo(0, window.innerHeight)
+    window.scroll({
+      top: window.innerHeight,
+      left: 0,
+      behavior: 'smooth'
+    })
   }
 
   render() {
-    console.log(this.props)
     const thingsIAm = [
       'software engineer',
       'sneakerhead',

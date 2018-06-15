@@ -66,7 +66,7 @@ const AboutGrid = ({
 }) => {
   return (
     <div css={container}>
-      <div css={infoSection} style={{ maxWidth: '600px' }}>
+      <div css={infoSection} style={{ maxWidth: '800px' }}>
         <h1>About Me</h1>
         <p>
           I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and
@@ -84,16 +84,6 @@ const AboutGrid = ({
           I am always open to new opportunities and interesting projects. Don't
           hesitate to <Link to="/contact">contact me!</Link>
         </p>
-      </div>
-      <div css={[infoSection, hideOnMobile, { width: '380px' }]}>
-        <h3>What I'm Listening to</h3>
-        <iframe
-          src="https://open.spotify.com/embed/user/1266242470/playlist/6b3Yy0FEyh1b98UVFiNes3"
-          width="100%"
-          height="380"
-          frameBorder="0"
-          allowTransparency="true"
-        />
       </div>
       <div css={imgContainer}>
         <Img sizes={bannerSizes} />
