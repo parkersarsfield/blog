@@ -69,20 +69,17 @@ const AboutGrid = ({
       <div css={infoSection} style={{ maxWidth: '800px' }}>
         <h1>About Me</h1>
         <p>
-          I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and
-          tech junkie.
+          Hi! I'm Parker. I am a software developer, sneaker enthusiast,
+          musician, and creative. I love creating things from the ground up.
         </p>
+        <p>I build software for Capital One in the D.C. metro area. </p>
         <p>
-          I am an incoming software engineer at Capital One, and a freelance web
-          developer.{' '}
-        </p>
-        <p>
-          When I'm not working hard with cutting edge technology, you can find
-          me sneaker shopping, reading, or playing Spikeball.
+          When I'm not writing code, you can find me sneaker shopping, playing
+          guitar, or relaxing in a hammock.
         </p>
         <p>
           I am always open to new opportunities and interesting projects. Don't
-          hesitate to <Link to="/contact">contact me!</Link>
+          hesitate to <Link to="/contact">contact</Link> me!
         </p>
       </div>
       <div css={imgContainer}>

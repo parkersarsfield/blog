@@ -56,20 +56,20 @@ const timelineData = [
     date: '2014-2018',
     title: 'Vanderbilt University',
     info:
-      'I am finishing up my degree at Vanderbilt University. I studied computer science, classical guitar, and engineering management.',
+      'I graduated from Vanderbilt in May of 2018. I studied computer science, classical guitar, and engineering management.',
     logo: 'vandy'
   },
   {
-    date: '2016',
+    date: 'Summer 2016',
     title: 'Faithlife Inc.',
     info:
-      'Faithlife is where I fell in love with web development. I worked on the Faithlife Groups team where I built web apps using React, Redux, and C#.',
+      'Faithlife is where I fell in love with software development. I worked on the Faithlife Groups team where I built web apps using React, Redux, and C#.',
     logo: 'faithlife'
   },
   {
-    date: '2017 - present',
+    date: 'Summer 2017 - present',
     title: 'Capital One',
-    info: `I spent the summer of 2017 at Capital One building full stack webapps for Tech College. I'll be returning full time in September.`,
+    info: `I spent the summer of 2017 at Capital One building full stack web apps for Tech College. I returned full time after my graduation from Vanderbilt.`,
     logo: 'capitalone'
   }
 ]

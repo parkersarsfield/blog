@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 import { css } from 'glamor'
-import Typist from 'react-typist'
 import { rhythm } from '../utils/typography'
 import Img from 'gatsby-image'
 
@@ -108,26 +107,9 @@ const container = css({
   height: '100%'
 })
 
-const Typer = ({ config, textList, restart }) => {
-  return (
-    <Typist {...config}>
-      {textList.map(thing => (
-        <span key={thing}>
-          {thing}
-          <Typist.Backspace delay={2000} count={thing.length + 1} />
-        </span>
-      ))}
-    </Typist>
-  )
-}
-
 export default class IndexPage extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      isTyping: true
-    }
   }
 
   scrollToAboutSection() {
@@ -139,23 +121,6 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
-    const thingsIAm = [
-      'software engineer',
-      'sneakerhead',
-      'front-end developer',
-      'musician'
-    ]
-
-    const restart = () => {
-      this.setState({ isTyping: false })
-      this.setState({ isTyping: true })
-    }
-
-    const typerConfig = {
-      avgTypingDelay: 100,
-      onTypingDone: restart
-    }
-
     return (
       <div css={container}>
         <div css={scrollButton} onClick={this.scrollToAboutSection}>
@@ -175,13 +140,8 @@ export default class IndexPage extends React.Component {
               resolutions={this.props.data.headshot.resolutions}
               css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
             />
-            <p>
-              Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am
-              a:
-            </p>
-            {this.state.isTyping ? (
-              <Typer config={typerConfig} textList={thingsIAm} />
-            ) : null}
+            <p>I'm Parker.</p>
+            <p>I create things.</p>
           </div>
         </div>
 
