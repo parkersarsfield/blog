@@ -11,7 +11,7 @@ Today, I had my first experience taking an Amtrak train. Having spent most of my
 
 ### Before the Trip
 
-I got to Union Station in D.C. around 20 minutes before my train was set to leave, which was much more time than I needed. There is no security or check in process for Amtrak trains. Once you arrive at the station, you make your way to your train's gate, which will open for boarding around 10-15 minutes before the train's departure. Your pre-tip experience may vary, so get there around half an hour before if you don't know what you're doing.
+I got to Union Station in D.C. around 20 minutes before my train was set to leave, which was much more time than I needed. There is no security or check in process for Amtrak trains. Once you arrive at the station, you make your way to your train's gate, which will open for boarding around 10-15 minutes before the train's departure. Your pre-trip experience may vary, so get there around half an hour before if you don't know what you're doing.
 
 ### Baggage
 
@@ -21,7 +21,7 @@ You can also bring anything you want on the train to eat or drink, including the
 
 ### Trip Details
 
-I took the Northeast Regional Train from Washington, DC (Union Station) to New York (Penn Station). The trip lasted about three and a half hours, and arrived in New York City one minute earlier than the schedule said we would. This is a nice change of pace from airlines that have a large window of variability in arrival times. If you want to shave off these extra stops and take the express train it will cost you a bit more, but the trip wll only take three hours.
+I took the Northeast Regional Train from Washington, DC (Union Station) to New York (Penn Station). The trip lasted about three and a half hours, and the train arrived in New York City one minute earlier than the schedule said we would. This is a nice change of pace from airlines that have a large window of variability in arrival times. If you want to shave off these extra stops and take the express train it will cost you a bit more, but the trip will only take three hours.
 
 My train had around 10 - 15 stops on the length of my trip. Most people on the train were getting off at stops like New York, Baltimore, and Philly.
 
