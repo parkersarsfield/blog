@@ -5,7 +5,6 @@ import { rhythm } from '../utils/typography'
 import Img from 'gatsby-image'
 
 import bg from '../media/bg.jpg'
-import 'react-typist/dist/Typist.css'
 
 import AboutGrid from '../components/AboutGrid'
 import Header from '../components/Header'
