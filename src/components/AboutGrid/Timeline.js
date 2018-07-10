@@ -57,29 +57,33 @@ const timelineData = [
     title: 'Vanderbilt University',
     info:
       'I graduated from Vanderbilt in May of 2018. I studied computer science, classical guitar, and engineering management.',
-    logo: 'vandy'
+    logo: 'vandy',
+    location: 'Nashville, TN'
   },
   {
     date: 'Summer 2016',
     title: 'Faithlife Inc.',
     info:
       'Faithlife is where I fell in love with software development. I worked on the Faithlife Groups team where I built web apps using React, Redux, and C#.',
-    logo: 'faithlife'
+    logo: 'faithlife',
+    location: 'Bellingham, WA'
   },
   {
     date: 'Summer 2017 - present',
     title: 'Capital One',
     info: `I spent the summer of 2017 at Capital One building full stack web apps for Tech College. I returned full time after my graduation from Vanderbilt.`,
-    logo: 'capitalone'
+    logo: 'capitalone',
+    location: 'McLean, VA'
   }
 ]
 
-const TimelineSection = ({ date, title, info, image }) => (
+const TimelineSection = ({ date, title, info, image, location }) => (
   <li>
     <div>
       <Img resolutions={image} />
       <div>
-        <time>{date}</time>
+        <h4 css={{ margin: rhythm(0.25) + ' 0', color: '#777' }}>{date}</h4>
+        <h4 css={{ marginBottom: rhythm(0.5), color: '#777' }}>{location}</h4>
         <h3>{title}</h3>
         <p>{info}</p>
       </div>
