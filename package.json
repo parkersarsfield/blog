@@ -29,8 +29,6 @@
     "npm": "^5.8.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
-    "react-typist": "^2.0.4",
-    "react-typist-loop": "0.0.5",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
   },
