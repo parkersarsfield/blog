@@ -171,6 +171,10 @@ export default class IndexPage extends React.Component {
         />
         <div css={heroStyle}>
           <div css={contentStyle}>
+            <Img
+              resolutions={this.props.data.headshot.resolutions}
+              css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
+            />
             <p>
               Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am
               a:
@@ -226,6 +230,11 @@ export const query = graphql`
     logo: imageSharp(id: { regex: "/logo.png/" }) {
       resolutions(width: 50) {
         ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+    headshot: imageSharp(id: { regex: "/headshot.png/" }) {
+      resolutions(width: 200) {
+        ...GatsbyImageSharpResolutions
       }
     }
   }
