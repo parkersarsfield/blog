@@ -2,27 +2,29 @@ import Typography from 'typography'
 import judahTheme from 'typography-theme-judah'
 
 judahTheme.headerFontFamily = [
-  'Open Sans',
+  'Roboto',
   'Helvetica Neue',
   'Segoe UI',
   'Helvetica',
   'Arial',
-  'sans-serif',
+  'sans-serif'
 ]
 judahTheme.bodyFontFamily = [
-  'Open Sans',
+  'Roboto',
   'Helvetica Neue',
   'Segoe UI',
   'Helvetica',
   'Arial',
-  'sans-serif',
+  'sans-serif'
 ]
 judahTheme.googleFonts = [
   {
-    name: 'Open Sans',
-    styles: ['400'],
-  },
+    name: 'Roboto',
+    styles: ['100', '300', '400']
+  }
 ]
+
+judahTheme.headerWeight = 300
 
 const typography = new Typography(judahTheme)
 

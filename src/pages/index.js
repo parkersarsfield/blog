@@ -27,7 +27,7 @@ const contentStyle = css({
   position: 'absolute',
   color: '#333',
   textAlign: 'center',
-  fontWeight: 'lighter',
+  fontWeight: '300',
   fontSize: rhythm(1),
   maxWidth: '100%'
 })
