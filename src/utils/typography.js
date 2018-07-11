@@ -20,11 +20,36 @@ judahTheme.bodyFontFamily = [
 judahTheme.googleFonts = [
   {
     name: 'Roboto',
-    styles: ['100', '300', '400']
+    styles: ['100', '300', '400', '700']
   }
 ]
 
 judahTheme.headerWeight = 300
+
+judahTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+  a: {
+    color: options.bodyColor,
+    textDecoration: 'none'
+  },
+  'a:hover,a:active': {
+    color: options.bodyColor,
+    textDecoration: 'none'
+  },
+  'p a': {
+    color: options.bodyColor,
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    textDecorationColor: '#ffdf00'
+  },
+  'p a:hover, p a:active': {
+    color: options.bodyColor,
+    fontWeight: 'unset',
+    textDecoration: 'underline',
+    textDecorationColor: '#ffdf00'
+  }
+})
+
+console.log(judahTheme)
 
 const typography = new Typography(judahTheme)
 
