@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import { css } from 'glamor'
-import { rhythm } from '../utils/typography'
-import FontAwesome from 'react-fontawesome'
-import faStyles from 'font-awesome/css/font-awesome.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import { rhythm } from '../utils/typography';
+import FontAwesome from 'react-fontawesome';
 
 const BackButton = ({ to }) => (
   <Link to={to}>
@@ -14,6 +13,10 @@ const BackButton = ({ to }) => (
     />{' '}
     Back
   </Link>
-)
+);
 
-export default BackButton
+BackButton.propTypes = {
+  to: PropTypes.string.isRequired,
+};
+
+export default BackButton;

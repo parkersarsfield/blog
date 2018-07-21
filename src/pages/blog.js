@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 
-import { rhythm } from '../utils/typography'
-
-export default ({ data }) => {
+const BlogPage = ({ data }) => {
   return (
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -21,9 +20,15 @@ export default ({ data }) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
+BlogPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default BlogPage;
+// eslint-disable-next-line no-undef
 export const query = graphql`
   query BlogQuery {
     allMarkdownRemark(
@@ -46,4 +51,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

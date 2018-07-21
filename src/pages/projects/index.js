@@ -1,17 +1,17 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import Link from 'gatsby-link'
-import { css } from 'glamor'
-import { rhythm } from '../../utils/typography'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import Link from 'gatsby-link';
+import { css } from 'glamor';
+import { rhythm } from '../../utils/typography';
 
 const projectCard = css({
   border: '1px solid #eee',
   display: 'flex',
-  width: '100%',
   alignContent: 'center',
   width: '100%',
-  padding: rhythm(0.5)
-})
+  padding: rhythm(0.5),
+});
 
 const ProjectCard = ({ node }) => (
   <Link
@@ -27,14 +27,14 @@ const ProjectCard = ({ node }) => (
           display: 'flex',
           flex: '1',
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <div
           css={{
             borderLeft: '4px solid #333',
             marginLeft: rhythm(1),
-            paddingLeft: rhythm(1)
+            paddingLeft: rhythm(1),
           }}
         >
           <h2>{node.frontmatter.title}</h2>
@@ -46,7 +46,11 @@ const ProjectCard = ({ node }) => (
       </div>
     </div>
   </Link>
-)
+);
+
+ProjectCard.propTypes = {
+  node: PropTypes.object.isRequired,
+};
 
 const ProjectPage = ({ data }) => {
   return (
@@ -58,11 +62,16 @@ const ProjectPage = ({ data }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectPage
+ProjectPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
+export default ProjectPage;
+
+// eslint-disable-next-line no-undef
 export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark(
@@ -93,4 +102,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

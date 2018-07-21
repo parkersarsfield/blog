@@ -1,14 +1,12 @@
-import React, { Fragment } from 'react'
-import Link from 'gatsby-link'
-import { css } from 'glamor'
-import { rhythm } from '../utils/typography'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import { rhythm } from '../utils/typography';
+import Img from 'gatsby-image';
 
-import bg from '../media/bg.jpg'
-
-import AboutGrid from '../components/AboutGrid'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import AboutGrid from '../components/AboutGrid';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const heroStyle = css({
   position: 'relative',
@@ -19,8 +17,8 @@ const heroStyle = css({
   justifyContent: 'center',
   flexDirection: 'column',
   textAlign: 'center',
-  zIndex: '-1'
-})
+  zIndex: '-1',
+});
 
 const contentStyle = css({
   width: '100%',
@@ -29,34 +27,8 @@ const contentStyle = css({
   textAlign: 'center',
   fontWeight: '300',
   fontSize: rhythm(1),
-  maxWidth: '100%'
-})
-
-const navStyle = css({
-  width: '75%',
-  color: '#eee',
-  top: 0,
-  position: 'absolute',
-  zIndex: '1',
-  padding: rhythm(1),
-  margin: '0 auto',
-  left: 0,
-  right: 0,
-  textAlign: 'right'
-})
-
-const pageLinkStyle = css({
-  color: '#eee',
-  border: '1px solid #ffdf00',
-  margin: rhythm(0.5),
-  padding: rhythm(0.25),
-  backgroundColor: 'transparent',
-  transition: 'background .1s linear',
-  ':hover': {
-    backgroundColor: '#ffdf00',
-    fontWeight: 'bold'
-  }
-})
+  maxWidth: '100%',
+});
 
 const scrollButton = css({
   position: 'absolute',
@@ -83,7 +55,7 @@ const scrollButton = css({
     margin: '0 auto 10px auto',
     left: 0,
     right: 0,
-    position: 'relative'
+    position: 'relative',
   },
   color: '#333',
   padding: '0 ' + rhythm(0.25),
@@ -96,27 +68,27 @@ const scrollButton = css({
   ':hover': {
     fontWeight: 'bold',
     maxWidth: '10rem',
-    cursor: 'pointer'
-  }
-})
+    cursor: 'pointer',
+  },
+});
 
 const container = css({
   position: 'absolute',
   width: '100%',
-  height: '100%'
-})
+  height: '100%',
+});
 
 export default class IndexPage extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   scrollToAboutSection() {
     window.scroll({
       top: window.innerHeight,
       left: 0,
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -139,7 +111,7 @@ export default class IndexPage extends React.Component {
               resolutions={this.props.data.headshot.resolutions}
               css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
             />
-            <p>I'm Parker.</p>
+            <p>I&apos;m Parker.</p>
             <p>I create things.</p>
           </div>
         </div>
@@ -150,15 +122,23 @@ export default class IndexPage extends React.Component {
           timelineImages={{
             faithlife: this.props.data.faithlife.resolutions,
             vandy: this.props.data.vandy.resolutions,
-            capitalone: this.props.data.capitalone.resolutions
+            capitalone: this.props.data.capitalone.resolutions,
           }}
         />
         <Footer />
       </div>
-    )
+    );
   }
 }
 
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+  isModalOpen: PropTypes.bool.isRequired.isRequired,
+  closeMenu: PropTypes.func.isRequired,
+  openMenu: PropTypes.func.isRequired,
+};
+
+//eslint-disable-next-line no-undef
 export const query = graphql`
   query IndexQuery {
     shoeImage: imageSharp(id: { regex: "/shoes.jpg/" }) {
@@ -197,4 +177,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

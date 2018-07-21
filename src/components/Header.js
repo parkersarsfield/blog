@@ -1,10 +1,10 @@
-import React from 'react'
-import { css } from 'glamor'
-import { rhythm, options } from '../utils/typography'
-import Link from 'gatsby-link'
-import FontAwesome from 'react-fontawesome'
-import faStyles from 'font-awesome/css/font-awesome.css'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import { rhythm, options } from '../utils/typography';
+import Link from 'gatsby-link';
+import FontAwesome from 'react-fontawesome';
+import Img from 'gatsby-image';
 
 const baseHeaderStyle = {
   margin: `0 auto ${rhythm(1)} auto`,
@@ -18,41 +18,40 @@ const baseHeaderStyle = {
   maxWidth: '800px',
   paddingBottom: rhythm(1),
   '& h1': {
-    margin: '0'
+    margin: '0',
   },
   '& h3': {
-    margin: 0
+    margin: 0,
   },
   '& h3 a': {
-    flex: '1'
+    flex: '1',
   },
   '& a': {
     flex: '1',
-    textAlign: 'left'
+    textAlign: 'left',
   },
   '@media(max-width: 800px)': {
     paddingBottom: rhythm(0.5),
     borderBottom: 'none',
     '& h1': {
-      //fontSize: '1.5rem'
-      display: 'none'
-    }
-  }
-}
+      display: 'none',
+    },
+  },
+};
 
-let frontPage = Object.assign({}, baseHeaderStyle)
+let frontPage = Object.assign({}, baseHeaderStyle);
 
 frontPage = Object.assign(frontPage, {
   position: 'absolute',
   maxWidth: 800,
   padding: rhythm(1),
   paddingTop: '0',
-  top: rhythm(1)
-})
+  top: rhythm(1),
+});
 
-const frontPageStyle = css(frontPage)
+const frontPageStyle = css(frontPage);
 
-const newHeaderStyle = css(baseHeaderStyle)
+const newHeaderStyle = css(baseHeaderStyle);
 
 const darkZone = css({
   height: '100vh',
@@ -61,8 +60,8 @@ const darkZone = css({
   top: 0,
   left: 0,
   background: '#000',
-  opacity: '.8'
-})
+  opacity: '.8',
+});
 
 const linkStyle = css({
   display: 'flex',
@@ -73,22 +72,21 @@ const linkStyle = css({
   margin: 0,
   '& a': {
     '&:hover': {
-      borderBottom: '2px solid #ffdf00'
-    }
+      borderBottom: '2px solid #ffdf00',
+    },
   },
   '@media(max-width: 800px)': {
     '& h3': {
-      display: 'none'
-    }
-  }
-})
+      display: 'none',
+    },
+  },
+});
 
 const openLinkStyle = css({
   '@media(max-width: 800px)': {
     '& h3': {
       zIndex: '2',
       display: 'flex',
-      position: 'absolute',
       width: '100vw',
       flexDirection: 'column',
       position: 'fixed',
@@ -103,18 +101,18 @@ const openLinkStyle = css({
         alignItems: 'center',
         justifyContent: 'center',
         margin: '0',
-        zIndex: 1
-      }
-    }
-  }
-})
+        zIndex: 1,
+      },
+    },
+  },
+});
 
 const slideButton = css({
   '@media(min-width: 800px)': {
-    display: 'none'
+    display: 'none',
   },
-  display: 'block'
-})
+  display: 'block',
+});
 
 const LinkButton = ({ name, slug, close }) => (
   <Link
@@ -124,30 +122,36 @@ const LinkButton = ({ name, slug, close }) => (
   >
     {name}
   </Link>
-)
+);
+
+LinkButton.propTypes = {
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  close: PropTypes.func.isRequired,
+};
 
 class Header extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      isMenuOpen: false
-    }
+      isMenuOpen: false,
+    };
 
-    this.openMenu = this.openMenu.bind(this)
-    this.closeMenu = this.closeMenu.bind(this)
+    this.openMenu = this.openMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   openMenu() {
     this.setState({
-      isMenuOpen: true
-    })
+      isMenuOpen: true,
+    });
   }
 
   closeMenu() {
     this.setState({
-      isMenuOpen: false
-    })
+      isMenuOpen: false,
+    });
   }
 
   render() {
@@ -160,8 +164,8 @@ class Header extends React.Component {
             alignItems: 'center',
             '& div:first-of-type': {
               maxHeight: '50px',
-              marginRight: rhythm(0.5)
-            }
+              marginRight: rhythm(0.5),
+            },
           }}
           to="/"
         >
@@ -191,8 +195,14 @@ class Header extends React.Component {
           <FontAwesome name={'bars'} size={'2x'} />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Header
+Header.propTypes = {
+  logo: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  isFrontPage: PropTypes.bool.isRequired,
+};
+
+export default Header;
