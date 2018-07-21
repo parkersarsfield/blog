@@ -26,7 +26,9 @@ judahTheme.googleFonts = [
 
 judahTheme.headerWeight = 300;
 
-judahTheme.overrideThemeStyles = options => ({
+//ignore this to keep the order of args correct
+//eslint-disable-next-line no-unused-vars
+judahTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   a: {
     color: options.bodyColor,
     textDecoration: 'none',
