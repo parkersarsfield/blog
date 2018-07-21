@@ -101,9 +101,6 @@ export default class IndexPage extends React.Component {
           logo={this.props.data.logo.resolutions}
           title={'Parker Sarsfield'}
           isFrontPage={true}
-          isModalOpen={this.props.isModalOpen}
-          closeMenu={this.props.closeMenu}
-          openMenu={this.props.openMenu}
         />
         <div css={heroStyle}>
           <div css={contentStyle}>
@@ -133,9 +130,6 @@ export default class IndexPage extends React.Component {
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
-  isModalOpen: PropTypes.bool.isRequired.isRequired,
-  closeMenu: PropTypes.func.isRequired,
-  openMenu: PropTypes.func.isRequired,
 };
 
 //eslint-disable-next-line no-undef

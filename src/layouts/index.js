@@ -3,6 +3,10 @@ import { css } from 'glamor';
 import { rhythm } from '../utils/typography';
 import { Helmet } from 'react-helmet';
 
+// imports fa icons once for use across site
+// eslint-disable-next-line no-unused-vars
+import faStyles from 'font-awesome/css/font-awesome.css';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './index.css';
