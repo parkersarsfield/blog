@@ -134,7 +134,25 @@ const Contact = () => {
             </label>
           </p>
           <p>
-            <button type="submit">Send</button>
+            <button
+              css={{
+                color: '#333',
+                margin: rhythm(0.5),
+                padding: `${rhythm(0.25)} ${rhythm(0.5)}`,
+                backgroundColor: '#ffdf00',
+                transition: 'background .1s linear',
+                borderRadius: '4px',
+                border: '2px solid #333',
+                ':hover': {
+                  backgroundColor: '#ffdf00',
+                  fontWeight: 'bold',
+                },
+                cursor: 'pointer',
+              }}
+              type="submit"
+            >
+              Send
+            </button>
           </p>
         </form>
       </div>
