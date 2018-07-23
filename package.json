@@ -1,21 +1,24 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "parkers-blog",
+  "description": "Parker's personal website",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "yarn lint && gatsby build",
     "bd": "gatsby build && surge ./public",
     "serve": "gatsby serve",
-    "prettify": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js"
+    "lint": "./node_modules/.bin/eslint src",
+    "prettify": "prettier --print-width 80 --single-quote --trailing-comma all --write src/**/*.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
+    "eslint": "^5.2.0",
     "font-awesome": "^4.7.0",
     "gatsby": "^1.9.119",
     "gatsby-cli": "^1.1.39",
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.28",
+    "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-glamor": "^1.6.9",
     "gatsby-plugin-google-analytics": "^1.0.28",
@@ -29,12 +32,11 @@
     "npm": "^5.8.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
-    "react-typist": "^2.0.4",
-    "react-typist-loop": "0.0.5",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
   },
   "devDependencies": {
+    "eslint-plugin-react": "^7.10.0",
     "prettier": "1.11.1"
   }
 }

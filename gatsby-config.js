@@ -1,40 +1,41 @@
 module.exports = {
   siteMetadata: {
     title: 'Parker Sarsfield',
-    author: 'Parker Sarsfield'
+    author: 'Parker Sarsfield',
   },
   plugins: [
     'gatsby-transformer-remark',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography'
-      }
+        pathToConfigModule: 'src/utils/typography',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src`
-      }
+        path: `${__dirname}/src`,
+      },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: ['Open Sans']
-      }
+        fonts: ['Roboto'],
+      },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-117186698-1',
         head: false,
         anonymize: true,
-        respectDNT: true
-      }
+        respectDNT: true,
+      },
     },
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: 'gatsby-plugin-favicon',
       options: {
         logo: './src/media/logo.png',
         injectHTML: true,
@@ -47,12 +48,12 @@ module.exports = {
           firefox: true,
           twitter: true,
           yandex: false,
-          windows: true
-        }
-      }
+          windows: true,
+        },
+      },
     },
     'gatsby-plugin-glamor',
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`
-  ]
-}
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+  ],
+};

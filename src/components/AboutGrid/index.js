@@ -1,13 +1,10 @@
-import React from 'react'
-import { css } from 'glamor'
-import { rhythm } from '../../utils/typography'
-import Link from 'gatsby-link'
-import PostPreview from './PostPreview'
-import Img from 'gatsby-image'
-import SlantedBg from '../SlantedBg'
-import Timeline from '../AboutGrid/Timeline'
-import longPicSrc from '../../media/mountain.jpg'
-import shoeSrc from '../../media/shoes.jpg'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import { rhythm } from '../../utils/typography';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
+import Timeline from '../AboutGrid/Timeline';
 
 const container = css({
   position: 'relative',
@@ -19,23 +16,17 @@ const container = css({
   right: 0,
   justifyContent: 'center',
   '> div': {
-    padding: rhythm(1)
-  }
-})
+    padding: rhythm(1),
+  },
+});
 
 const infoSection = css({
   position: 'relative',
   overflow: 'visible',
   display: 'flex',
   flexWrap: 'wrap',
-  width: '100%'
-})
-
-const hideOnMobile = css({
-  '@media(max-width: 1000px)': {
-    display: 'none'
-  }
-})
+  width: '100%',
+});
 
 const buttonStyle = css({
   color: '#333',
@@ -50,39 +41,31 @@ const buttonStyle = css({
   border: '2px solid #333',
   ':hover': {
     backgroundColor: '#ffdf00',
-    fontWeight: 'bold'
-  }
-})
+    fontWeight: 'bold',
+  },
+});
 
 const imgContainer = css({
-  minWidth: '100%'
-})
+  minWidth: '100%',
+});
 
-const AboutGrid = ({
-  aboutText,
-  bannerSizes,
-  lastImageSizes,
-  timelineImages
-}) => {
+const AboutGrid = ({ bannerSizes, lastImageSizes, timelineImages }) => {
   return (
     <div css={container}>
       <div css={infoSection} style={{ maxWidth: '800px' }}>
         <h1>About Me</h1>
         <p>
-          I'm Parker Sarsfield. I am a developer, sneakerhead, musician, and
-          tech junkie.
+          Hi! I&apos;m Parker. I am a software developer, sneaker enthusiast,
+          musician, and creative. I love creating things from the ground up.
+        </p>
+        <p>I build software for Capital One in the D.C. metro area. </p>
+        <p>
+          When I&apos;m not writing code, you can find me sneaker shopping,
+          playing guitar, or relaxing in a hammock.
         </p>
         <p>
-          I am an incoming software engineer at Capital One, and a freelance web
-          developer.{' '}
-        </p>
-        <p>
-          When I'm not working hard with cutting edge technology, you can find
-          me sneaker shopping, reading, or playing Spikeball.
-        </p>
-        <p>
-          I am always open to new opportunities and interesting projects. Don't
-          hesitate to <Link to="/contact">contact me!</Link>
+          I am always open to new opportunities and interesting projects.
+          Don&apos;t hesitate to <Link to="/contact">contact</Link> me!
         </p>
       </div>
       <div css={imgContainer}>
@@ -96,7 +79,7 @@ const AboutGrid = ({
           alignItems: 'center',
           minHeight: '525px',
           maxWidth: '100%',
-          '& div': { width: '100%' }
+          '& div': { width: '100%' },
         }}
       >
         <Img sizes={lastImageSizes} />
@@ -104,10 +87,9 @@ const AboutGrid = ({
       <div
         css={[
           infoSection,
-          { flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center' }
+          { flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center' },
         ]}
       >
-        {/* <h1>Learn More!</h1> */}
         <div
           css={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
         >
@@ -123,7 +105,12 @@ const AboutGrid = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+AboutGrid.propTypes = {
+  bannerSizes: PropTypes.object.isRequired,
+  lastImageSizes: PropTypes.object.isRequired,
+  timelineImages: PropTypes.object.isRequired,
+};
 
-export default AboutGrid
+export default AboutGrid;

@@ -1,32 +1,32 @@
-const { createFilePath } = require('gatsby-source-filesystem')
-const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem');
+const path = require('path');
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
+  const { createNodeField } = boundActionCreators;
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'pages' })
+    const slug = createFilePath({ node, getNode, basePath: 'pages' });
     createNodeField({
       node,
       name: 'slug',
-      value: slug
-    })
+      value: slug,
+    });
 
     createNodeField({
       node,
       name: 'type',
-      value: node.frontmatter.type
-    })
+      value: node.frontmatter.type,
+    });
 
     createNodeField({
       node,
       name: 'title',
-      value: node.frontmatter.title
-    })
+      value: node.frontmatter.title,
+    });
   }
-}
+};
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage } = boundActionCreators;
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -46,19 +46,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       .then(result => {
         //TODO factor this out
         posts = result.data.allMarkdownRemark.edges.filter(({ node }) => {
-          return node.fields.type === 'post'
-        })
+          return node.fields.type === 'post';
+        });
 
         const projects = result.data.allMarkdownRemark.edges.filter(
           ({ node }) => {
-            return node.fields.type === 'project'
-          }
-        )
+            return node.fields.type === 'project';
+          },
+        );
 
         posts.forEach(({ node }, index) => {
-          const next = index === 0 ? false : posts[index - 1].node
+          const next = index === 0 ? false : posts[index - 1].node;
           const prev =
-            index === posts.length - 1 ? false : posts[index + 1].node
+            index === posts.length - 1 ? false : posts[index + 1].node;
 
           createPage({
             path: node.fields.slug,
@@ -66,15 +66,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: node.fields.slug,
               prev,
-              next
-            }
-          })
-        })
+              next,
+            },
+          });
+        });
 
         projects.forEach(({ node }, index) => {
-          const next = index === 0 ? false : projects[index - 1].node
+          const next = index === 0 ? false : projects[index - 1].node;
           const prev =
-            index === projects.length - 1 ? false : projects[index + 1].node
+            index === projects.length - 1 ? false : projects[index + 1].node;
 
           createPage({
             path: node.fields.slug,
@@ -82,14 +82,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: node.fields.slug,
               prev,
-              next
-            }
-          })
-        })
-        resolve()
+              next,
+            },
+          });
+        });
+        resolve();
       })
       .catch(err => {
-        console.log(err)
-      })
-  })
-}
+        console.log(err);
+      });
+  });
+};

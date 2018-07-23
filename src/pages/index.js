@@ -1,16 +1,12 @@
-import React, { Fragment } from 'react'
-import Link from 'gatsby-link'
-import { css } from 'glamor'
-import Typist from 'react-typist'
-import { rhythm } from '../utils/typography'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import { rhythm } from '../utils/typography';
+import Img from 'gatsby-image';
 
-import bg from '../media/bg.jpg'
-import 'react-typist/dist/Typist.css'
-
-import AboutGrid from '../components/AboutGrid'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import AboutGrid from '../components/AboutGrid';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const heroStyle = css({
   position: 'relative',
@@ -21,44 +17,18 @@ const heroStyle = css({
   justifyContent: 'center',
   flexDirection: 'column',
   textAlign: 'center',
-  zIndex: '-1'
-})
+  zIndex: '-1',
+});
 
 const contentStyle = css({
   width: '100%',
   position: 'absolute',
   color: '#333',
   textAlign: 'center',
-  fontWeight: 'lighter',
+  fontWeight: '300',
   fontSize: rhythm(1),
-  maxWidth: '100%'
-})
-
-const navStyle = css({
-  width: '75%',
-  color: '#eee',
-  top: 0,
-  position: 'absolute',
-  zIndex: '1',
-  padding: rhythm(1),
-  margin: '0 auto',
-  left: 0,
-  right: 0,
-  textAlign: 'right'
-})
-
-const pageLinkStyle = css({
-  color: '#eee',
-  border: '1px solid #ffdf00',
-  margin: rhythm(0.5),
-  padding: rhythm(0.25),
-  backgroundColor: 'transparent',
-  transition: 'background .1s linear',
-  ':hover': {
-    backgroundColor: '#ffdf00',
-    fontWeight: 'bold'
-  }
-})
+  maxWidth: '100%',
+});
 
 const scrollButton = css({
   position: 'absolute',
@@ -85,7 +55,7 @@ const scrollButton = css({
     margin: '0 auto 10px auto',
     left: 0,
     right: 0,
-    position: 'relative'
+    position: 'relative',
   },
   color: '#333',
   padding: '0 ' + rhythm(0.25),
@@ -98,64 +68,30 @@ const scrollButton = css({
   ':hover': {
     fontWeight: 'bold',
     maxWidth: '10rem',
-    cursor: 'pointer'
-  }
-})
+    cursor: 'pointer',
+  },
+});
 
 const container = css({
   position: 'absolute',
   width: '100%',
-  height: '100%'
-})
-
-const Typer = ({ config, textList, restart }) => {
-  return (
-    <Typist {...config}>
-      {textList.map(thing => (
-        <span key={thing}>
-          {thing}
-          <Typist.Backspace delay={2000} count={thing.length + 1} />
-        </span>
-      ))}
-    </Typist>
-  )
-}
+  height: '100%',
+});
 
 export default class IndexPage extends React.Component {
   constructor(props) {
-    super(props)
-
-    this.state = {
-      isTyping: true
-    }
+    super(props);
   }
 
   scrollToAboutSection() {
     window.scroll({
       top: window.innerHeight,
       left: 0,
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
   }
 
   render() {
-    const thingsIAm = [
-      'software engineer',
-      'sneakerhead',
-      'front-end developer',
-      'musician'
-    ]
-
-    const restart = () => {
-      this.setState({ isTyping: false })
-      this.setState({ isTyping: true })
-    }
-
-    const typerConfig = {
-      avgTypingDelay: 100,
-      onTypingDone: restart
-    }
-
     return (
       <div css={container}>
         <div css={scrollButton} onClick={this.scrollToAboutSection}>
@@ -165,19 +101,15 @@ export default class IndexPage extends React.Component {
           logo={this.props.data.logo.resolutions}
           title={'Parker Sarsfield'}
           isFrontPage={true}
-          isModalOpen={this.props.isModalOpen}
-          closeMenu={this.props.closeMenu}
-          openMenu={this.props.openMenu}
         />
         <div css={heroStyle}>
           <div css={contentStyle}>
-            <p>
-              Hi! I'm <span style={{ fontWeight: 'bold' }}>Parker</span>. I am
-              a:
-            </p>
-            {this.state.isTyping ? (
-              <Typer config={typerConfig} textList={thingsIAm} />
-            ) : null}
+            <Img
+              resolutions={this.props.data.headshot.resolutions}
+              css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
+            />
+            <p>I&apos;m Parker.</p>
+            <p>I create things.</p>
           </div>
         </div>
 
@@ -187,18 +119,23 @@ export default class IndexPage extends React.Component {
           timelineImages={{
             faithlife: this.props.data.faithlife.resolutions,
             vandy: this.props.data.vandy.resolutions,
-            capitalone: this.props.data.capitalone.resolutions
+            capitalone: this.props.data.capitalone.resolutions,
           }}
         />
         <Footer />
       </div>
-    )
+    );
   }
 }
 
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+//eslint-disable-next-line no-undef
 export const query = graphql`
   query IndexQuery {
-    shoeImage: imageSharp(id: { regex: "/shoes.jpg/" }) {
+    shoeImage: imageSharp(id: { regex: "/kicks.jpg/" }) {
       sizes(maxWidth: 1000) {
         ...GatsbyImageSharpSizes_tracedSVG
       }
@@ -228,5 +165,10 @@ export const query = graphql`
         ...GatsbyImageSharpResolutions_tracedSVG
       }
     }
+    headshot: imageSharp(id: { regex: "/headshot.png/" }) {
+      resolutions(width: 200) {
+        ...GatsbyImageSharpResolutions
+      }
+    }
   }
-`
+`;

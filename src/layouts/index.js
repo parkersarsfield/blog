@@ -1,13 +1,15 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import { css, link } from 'glamor'
-import typo, { rhythm, options } from '../utils/typography'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { css } from 'glamor';
+import { rhythm } from '../utils/typography';
+import { Helmet } from 'react-helmet';
 
-import cdn from '../utils/cdn'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import './index.css'
+// imports fa icons once for use across site
+// eslint-disable-next-line no-unused-vars
+import faStyles from 'font-awesome/css/font-awesome.css';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import './index.css';
 
 const outerStyle = css({
   margin: '0 auto',
@@ -16,45 +18,17 @@ const outerStyle = css({
   paddingBottom: 0,
   minHeight: '100vh',
   display: 'flex',
-  flexDirection: 'column'
-})
-
-const sidebarStyle = css({
-  position: 'absolute',
-  right: '0',
-  top: '0',
-  bottom: '0',
-  margin: `auto ${rhythm(1)}`,
-  height: '75%',
-  width: '12rem',
-  padding: rhythm(0.5),
-  '@media(max-width: 1200px)': {
-    display: 'none'
-  },
-  textAlign: 'center'
-})
-
-const headshotStyle = css({
-  borderRadius: '100%',
-  width: '100%'
-})
-
-const Sidebar = ({ children, position }) => {
-  if (position === 'left') {
-    sidebarStyle.right = undefined
-    sidebarStyle.left = 0
-  }
-  return <div css={sidebarStyle} />
-}
+  flexDirection: 'column',
+});
 
 const HeadData = () => (
   <Helmet
     htmlAttributes={{
-      lang: 'en'
+      lang: 'en',
     }}
     title={'Parker Sarsfield'}
   />
-)
+);
 
 export default ({ children, data, location }) => {
   if (location.pathname === '/') {
@@ -67,7 +41,7 @@ export default ({ children, data, location }) => {
           {children()}
         </div>
       </div>
-    )
+    );
   } else {
     return (
       <div css={outerStyle}>
@@ -82,10 +56,11 @@ export default ({ children, data, location }) => {
         </div>
         <Footer />
       </div>
-    )
+    );
   }
-}
+};
 
+// eslint-disable-next-line no-undef
 export const query = graphql`
   query LayoutQuery {
     site {
@@ -99,4 +74,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

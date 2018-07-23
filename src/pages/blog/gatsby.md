@@ -5,30 +5,19 @@ type: "post"
 tags: ['tech']
 ---
 
-Recently, I rebuilt my website using Gatsby. Before, my website was running on a WordPress server that I had hosted on HostGator. I loaded on a custom theme and spent a long time going through the settings, tweaking things, and making sure my site looked like I wanted. However, I made the switch to gatsby and I'm **loving it**. I have been rewriting my website in React, so I can have it function just the way I like. The main reasons I switched include speed, cost, and control.
+Recently, I rebuilt my website using Gatsby. Before, my website was running on a WordPress server that I had hosted on a slow hosting site. I loaded on a custom theme and spent a long time going through the settings, tweaking things, and making sure my site looked like I wanted. However, I made the switch to Gatsby.js and I'm **loving it**. I have been rewriting my website in React, so I can have it function just the way I like. The main reasons I switched include speed, cost, and control.
 
 ### Speed
 
-The biggest reason for switching for me was the huge speed increase. With my WordPress site, the initial load took about 4-5 seconds. This is due to me being cheap and buying the lowest tier plan from HostGator. But even with a very small amount of traffic, my site ws still very slow.
+The biggest reason for switching for me was the huge speed increase. With my WordPress site, the initial load took about 4-5 seconds. Wordpress servers aren't built for speed, so I was able to cut down on this load time massively by switching to a static site.
 
-But with Gatsby generating a static site based on my content, a static HTML page is sent for blazing fast load times. Building static pages cuts load time to where it feels almost instant.
+With generating a static site based on my Markdown and image files, a static HTML page is sent for blazing fast load times. Building static pages cuts down my load time to where it feels almost instant.
 
 ### Cost
 
-After switching to Gatsby, my site is built as a collection of static pages that only need to be served from a static server. All I need to deploy my site is something like an AWS S3 bucket, Netifly, or Surge.
+After switching to Gatsby, my site is built as a collection of static pages that only need to be served from a static CDN, or content delivery network. When a user requests my site, they only need to make a request to download the HTML. All I need to deploy my site is something like an AWS S3 bucket, Netifly, or Surge.
 
-I use [Surge](https://surge.sh) due to its simplicity. I can deploy straight from the command line, integrate it into the build process, and add a custom domain on the free tier. This reduces the **entire cost** of my website to 12 dollars a year for my domain.
-
-Adding the `bd` script to my `package.json` here allows my to build and deploy my site with one command.
-
-```javascript
-"scripts": {
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "bd": "gatsby build && surge ./public", // add this
-    "serve": "gatsby serve"
-  },
-```
+I use [Netlify](https://netlify.com) due to its simplicity and awesome features. I can include things like custom form handling, pull request previews, and custom domains with HTTPS all in the free tier. This means that the total annual cost of my blog is a whopping **$12/year**. The only thing I pay for is my domain name.
 
 ### Control
 
@@ -58,7 +47,9 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
 Overall the switch to Gatsby was a great decision. I have a faster, more customizable site that I pay a lot less for. Win-win-win. Let me know your experiences and if you also made the switch.
+
+If you're still confused about how a static site can benefit you, check out [this post I wrote.](/blog/)

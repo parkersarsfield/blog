@@ -1,15 +1,14 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import Link from 'gatsby-link'
-import { css } from 'glamor'
-import { rhythm } from '../utils/typography'
-import BackButton from '../components/BackButton'
-import PrevNextNav from '../components/PrevNextNav'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import { css } from 'glamor';
+import { rhythm } from '../utils/typography';
+import BackButton from '../components/BackButton';
+import PrevNextNav from '../components/PrevNextNav';
 const linkStyle = css({
   flex: 1,
   maxWidth: rhythm(5),
   textAlign: 'center',
-  border: '3px solid #333',
   color: '#333',
   margin: rhythm(0.5),
   padding: rhythm(0.25),
@@ -18,14 +17,13 @@ const linkStyle = css({
   border: '2px solid #333',
   ':hover': {
     backgroundColor: '#ffdf00',
-    fontWeight: 'bold'
-  }
-})
+    fontWeight: 'bold',
+  },
+});
 
-export default ({ data, pathContext }) => {
-  console.log(pathContext)
-  const projectHTML = data.markdownRemark.html
-  const project = data.markdownRemark.frontmatter
+const PortfolioPost = ({ data, pathContext }) => {
+  const projectHTML = data.markdownRemark.html;
+  const project = data.markdownRemark.frontmatter;
   return (
     <div>
       <BackButton to="/projects" />
@@ -59,9 +57,15 @@ export default ({ data, pathContext }) => {
         type="Project"
       />
     </div>
-  )
-}
+  );
+};
+PortfolioPost.propTypes = {
+  data: PropTypes.object.isRequired,
+  pathContext: PropTypes.object.isRequired,
+};
+export default PortfolioPost;
 
+//eslint-disable-next-line no-undef
 export const query = graphql`
   query PortfolioPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -82,4 +86,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

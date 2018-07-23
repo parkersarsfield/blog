@@ -1,8 +1,8 @@
-import React from 'react'
-import { css } from 'glamor'
-import { rhythm } from '../utils/typography'
-import FontAwesome from 'react-fontawesome'
-import faStyles from 'font-awesome/css/font-awesome.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import { rhythm } from '../utils/typography';
+import FontAwesome from 'react-fontawesome';
 
 const formStyle = css({
   padding: rhythm(1),
@@ -10,44 +10,43 @@ const formStyle = css({
   '& label': {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%'
+    width: '100%',
   },
   '& input': {
-    border: '1px solid lightgrey'
+    border: '1px solid lightgrey',
   },
   '& textarea': {
     resize: 'none',
     height: rhythm(4),
-    border: '1px solid lightgrey'
+    border: '1px solid lightgrey',
   },
   '& p:last-of-type': {
-    textAlign: 'center'
-  }
-})
+    textAlign: 'center',
+  },
+});
 
 const linksStyle = css({
   padding: rhythm(1),
   '@media(max-width: 600px)': {
     width: '100%',
-    padding: 0
+    padding: 0,
   },
   display: 'flex',
   flexDirection: 'column',
-  alignContent: 'center'
-})
+  alignContent: 'center',
+});
 
 const containerStyle = css({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',
-  padding: rhythm(1),
   justifyContent: 'center',
   '@media(max-width: 600px)': {
     width: '100%',
-    padding: 0
-  }
-})
+    padding: 0,
+  },
+});
 
 const linkStyle = css({
   width: '100%',
@@ -58,42 +57,48 @@ const linkStyle = css({
   justifyContent: 'center',
   overflow: 'hidden',
   '& .fa': {
-    marginRight: rhythm(0.5)
+    marginRight: rhythm(0.5),
   },
   '& span:last-of-type': {
     overflow: 'hidden',
-    maxHeight: rhythm(1)
+    maxHeight: rhythm(1),
   },
   '&:hover span:last-of-type': {
-    maxWidth: '100%'
-  }
-})
+    maxWidth: '100%',
+  },
+});
 
 const SocialLink = ({ url, icon, text }) => (
   <a href={url} css={linkStyle}>
     <FontAwesome name={icon} size="3x" />
     <span css={{}}>{text}</span>
   </a>
-)
+);
+
+SocialLink.propTypes = {
+  url: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 const Contact = () => {
   const socialSites = [
     {
       url: 'https://github.com/parkersarsfield',
       icon: 'github',
-      text: 'Clone my code.'
+      text: 'Clone my code.',
     },
     {
       url: 'https://www.linkedin.com/in/parker-sarsfield-bb978b118/',
       icon: 'linkedin',
-      text: 'Connect with me.'
+      text: 'Connect with me.',
     },
     {
       url: 'https://www.twitter.com/parkersarsfield/',
       icon: 'twitter',
-      text: 'Follow me.'
-    }
-  ]
+      text: 'Follow me.',
+    },
+  ];
 
   return (
     <div css={containerStyle}>
@@ -108,7 +113,8 @@ const Contact = () => {
         >
           <p css={{ display: 'none' }}>
             <label>
-              Don’t fill this out if you're human: <input name="bot-field" />
+              Don’t fill this out if you&apos;re human:{' '}
+              <input name="bot-field" />
             </label>
           </p>
           <p>
@@ -127,7 +133,25 @@ const Contact = () => {
             </label>
           </p>
           <p>
-            <button type="submit">Send</button>
+            <button
+              css={{
+                color: '#333',
+                margin: rhythm(0.5),
+                padding: `${rhythm(0.25)} ${rhythm(0.5)}`,
+                backgroundColor: '#ffdf00',
+                transition: 'background .1s linear',
+                borderRadius: '4px',
+                border: '2px solid #333',
+                ':hover': {
+                  backgroundColor: '#ffdf00',
+                  fontWeight: 'bold',
+                },
+                cursor: 'pointer',
+              }}
+              type="submit"
+            >
+              Send
+            </button>
           </p>
         </form>
       </div>
@@ -137,7 +161,7 @@ const Contact = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
