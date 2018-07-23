@@ -41,7 +41,6 @@ const containerStyle = css({
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',
-  // padding: rhythm(1),
   justifyContent: 'center',
   '@media(max-width: 600px)': {
     width: '100%',
