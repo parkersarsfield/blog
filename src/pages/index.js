@@ -135,7 +135,7 @@ IndexPage.propTypes = {
 //eslint-disable-next-line no-undef
 export const query = graphql`
   query IndexQuery {
-    shoeImage: imageSharp(id: { regex: "/shoes.jpg/" }) {
+    shoeImage: imageSharp(id: { regex: "/kicks.jpg/" }) {
       sizes(maxWidth: 1000) {
         ...GatsbyImageSharpSizes_tracedSVG
       }
