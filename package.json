@@ -8,8 +8,7 @@
     "bd": "gatsby build && surge ./public",
     "serve": "gatsby serve",
     "lint": "./node_modules/.bin/eslint src",
-    "prettify":
-      "prettier --print-width 80 --single-quote --trailing-comma all --write src/**/*.js"
+    "prettify": "prettier --print-width 80 --single-quote --trailing-comma all --write src/**/*.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -19,6 +18,7 @@
     "gatsby-cli": "^1.1.39",
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.28",
+    "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-glamor": "^1.6.9",
     "gatsby-plugin-google-analytics": "^1.0.28",
