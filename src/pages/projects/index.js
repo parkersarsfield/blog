@@ -6,11 +6,35 @@ import { css } from 'glamor';
 import { rhythm } from '../../utils/typography';
 
 const projectCard = css({
-  border: '1px solid #eee',
+  border: '2px solid #666',
   display: 'flex',
   alignContent: 'center',
   width: '100%',
-  padding: rhythm(0.5),
+  position: 'relative',
+  overflow: 'hidden',
+  padding: rhythm(1),
+  background: '#fff',
+  alignItems: 'center',
+  transition: 'padding 1s',
+  ':hover': {
+    '& .border-left': {
+      // paddingTop: rhythm(0.5),
+      // paddingBottom: rhythm(0.5),
+    },
+    border: '2px solid #ffdf00',
+  },
+  '@media(max-width: 800px)': {
+    flexDirection: 'column',
+    '& .border-left': {
+      borderLeft: 'none',
+      borderTop: '2px solid #333',
+      margin: `${rhythm(0.5)} 0 0 0`,
+      padding: `${rhythm(0.5)} 0 0 0`,
+      width: '100%',
+      textAlign: 'center',
+    },
+  },
+  margin: `0 0 ${rhythm(1)} 0`,
 });
 
 const ProjectCard = ({ node }) => (
@@ -19,7 +43,15 @@ const ProjectCard = ({ node }) => (
     css={{ textDecoration: 'none', color: 'inherit' }}
   >
     <div key={node.id} css={projectCard}>
-      <div css={{ width: '40%' }}>
+      <div
+        css={{
+          width: '40%',
+          '& img': { margin: '0' },
+          '@media(max-width: 800px)': {
+            width: '100%',
+          },
+        }}
+      >
         <Img sizes={node.frontmatter.image.childImageSharp.sizes} />
       </div>
       <div
@@ -28,6 +60,9 @@ const ProjectCard = ({ node }) => (
           flex: '1',
           flexDirection: 'column',
           justifyContent: 'center',
+          overflow: 'hidden',
+          height: '100%',
+          width: '100%',
         }}
       >
         <div
@@ -36,6 +71,7 @@ const ProjectCard = ({ node }) => (
             marginLeft: rhythm(1),
             paddingLeft: rhythm(1),
           }}
+          className="border-left"
         >
           <h2>{node.frontmatter.title}</h2>
           <p css={{ color: '#333' }}>{node.frontmatter.description} </p>
@@ -75,7 +111,7 @@ export default ProjectPage;
 export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___title], order: ASC }
       filter: { frontmatter: { type: { eq: "project" } } }
     ) {
       totalCount
