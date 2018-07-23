@@ -36,9 +36,9 @@ const PrevNextNav = ({ prev, next, type }) => {
 };
 
 PrevNextNav.propTypes = {
-  prev: PropTypes.object.isRequired,
-  next: PropTypes.object.isRequired,
-  type: PropTypes.string.isRequired,
+  prev: PropTypes.any.isRequired,
+  next: PropTypes.any.isRequired,
+  type: PropTypes.any.isRequired,
 };
 
 export default PrevNextNav;

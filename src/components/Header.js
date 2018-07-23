@@ -61,6 +61,7 @@ const darkZone = css({
   left: 0,
   background: '#000',
   opacity: '.8',
+  zIndex: 1,
 });
 
 const linkStyle = css({

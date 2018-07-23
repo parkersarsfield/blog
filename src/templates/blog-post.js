@@ -9,6 +9,9 @@ const BlogPost = ({ data, pathContext }) => {
     <div>
       <BackButton to="/blog" />
       <h2>{post.frontmatter.title}</h2>
+      <h3>
+        <span style={{ color: '#BBB' }}>{post.frontmatter.date}</span>
+      </h3>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <PrevNextNav
         next={pathContext.next}
@@ -33,6 +36,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date(formatString: "DD MMM, YYYY")
       }
     }
   }
