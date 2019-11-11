@@ -74,7 +74,7 @@ pick c59e651 now it works!
 # Note that empty commits are commented out
 ```
 
-Now, change each instance of `pick` (except the first), to `squash`. You can do this in vim by typing `:%s/pick/squash/g` followed by `ggciwpick` then save your changes and write the commit with `:wq`. This tells git to squash the commits with `squash` next to them into the previous commit. Next your should see this screen, given that there are no conflicts. 
+Now, change each instance of `pick` (except the first), to `squash`. You can do this in vim by typing `:%s/pick/squash/g` followed by `ggciwpick` then save your changes and write the commit with `:wq`. This tells git to squash the commits with `squash` next to them into the previous commit. Next you should see this screen, given that there are no conflicts. 
 
 ```sh
 # This is a combination of 3 commits.
