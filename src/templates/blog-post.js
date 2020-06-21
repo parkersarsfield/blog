@@ -1,30 +1,34 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import BackButton from '../components/BackButton';
 import PrevNextNav from '../components/PrevNextNav';
+import Layout from '../components/layout';
 
-const BlogPost = ({ data, pathContext }) => {
+const BlogPost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   return (
-    <div>
-      <BackButton to="/blog" />
-      <h2>{post.frontmatter.title}</h2>
-      <h3>
-        <span style={{ color: '#BBB' }}>{post.frontmatter.date}</span>
-      </h3>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <PrevNextNav
-        next={pathContext.next}
-        prev={pathContext.prev}
-        type="Post"
-      />
-    </div>
+    <Layout location={location}>
+      <div>
+        <BackButton to="/blog" />
+        <h2>{post.frontmatter.title}</h2>
+        <h3>
+          <span style={{ color: '#BBB' }}>{post.frontmatter.date}</span>
+        </h3>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <PrevNextNav
+          next={pageContext.next}
+          prev={pageContext.prev}
+          type="Post"
+        />
+      </div>
+    </Layout>
   );
 };
 
 BlogPost.propTypes = {
   data: PropTypes.object.isRequired,
-  pathContext: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
 };
 
 export default BlogPost;

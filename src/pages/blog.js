@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 
-const BlogPage = ({ data }) => {
+import Layout from '../components/layout';
+
+const BlogPage = ({ data, location }) => {
   return (
-    <div>
-      <h1>My Blog</h1>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link
-            to={node.fields.slug}
-            css={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <h3>
-              {node.frontmatter.title}{' '}
-              <span style={{ color: '#BBB' }}>- {node.frontmatter.date}</span>
-            </h3>
-          </Link>
-          <p style={{ color: '#777' }}>{node.excerpt}</p>
-        </div>
-      ))}
-    </div>
+    <Layout location={location}>
+      <div>
+        <h1>My Blog</h1>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key={node.id}>
+            <Link
+              to={node.fields.slug}
+              css={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <h3>
+                {node.frontmatter.title}{' '}
+                <span style={{ color: '#BBB' }}>- {node.frontmatter.date}</span>
+              </h3>
+            </Link>
+            <p style={{ color: '#777' }}>{node.excerpt}</p>
+          </div>
+        ))}
+      </div>
+    </Layout>
   );
 };
 

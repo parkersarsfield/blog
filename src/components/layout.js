@@ -1,4 +1,5 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import { css } from 'glamor';
 import { rhythm } from '../utils/typography';
 import { Helmet } from 'react-helmet';
@@ -30,7 +31,7 @@ const HeadData = () => (
   />
 );
 
-export default ({ children, data, location }) => {
+export default ({ children, location }) => {
   if (location.pathname === '/') {
     return (
       <div
@@ -38,40 +39,42 @@ export default ({ children, data, location }) => {
       >
         <HeadData />
         <div css={{ flex: '1 0 auto', minHeight: 'fit-content' }}>
-          {children()}
+          {children}
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div css={outerStyle}>
-        <HeadData />
-        <div css={{ flex: '1' }}>
-          <Header
-            logo={data.logo.resolutions}
-            title={data.site.siteMetadata.title}
-            isFrontPage={false}
-          />
-          {children()}
-        </div>
-        <Footer />
       </div>
     );
   }
-};
 
-// eslint-disable-next-line no-undef
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    logo: imageSharp(id: { regex: "/logo.png/" }) {
-      resolutions(width: 50) {
-        ...GatsbyImageSharpResolutions_tracedSVG
-      }
-    }
-  }
-`;
+  return (
+    <StaticQuery
+      query={graphql`
+        query LayoutQuery {
+          site {
+            siteMetadata {
+              title
+            }
+          }
+          logo: imageSharp(fluid: { originalName: { regex: "/logo.png/" } }) {
+            fixed(width: 50) {
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
+          }
+        }
+      `}
+      render={(data) => (
+        <div css={outerStyle}>
+          <HeadData />
+          <div css={{ flex: '1' }}>
+            <Header
+              logo={data.logo.fixed}
+              title={data.site.siteMetadata.title}
+              isFrontPage={false}
+            />
+            {children}
+          </div>
+          <Footer />
+        </div>
+      )}
+    />
+  );
+};

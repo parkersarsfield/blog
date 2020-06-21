@@ -1,11 +1,15 @@
 import React from 'react';
 
-const ThankYou = () => {
+import Layout from '../components/layout';
+
+const ThankYou = ({ location }) => {
   return (
-    <div>
-      <h1>Thanks!</h1>
-      <p>Your message has been sent. I&apos;ll get back to you soon!</p>
-    </div>
+    <Layout location={location}>
+      <div>
+        <h1>Thanks!</h1>
+        <p>Your message has been sent. I&apos;ll get back to you soon!</p>
+      </div>
+    </Layout>
   );
 };
 

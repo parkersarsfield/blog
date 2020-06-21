@@ -1,15 +1,19 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
-const Page404 = () => {
+import Layout from '../components/layout';
+
+const Page404 = ({ location }) => {
   return (
-    <div>
-      <h1>Uh Oh!</h1>
-      <p>
-        You&apos;ve just hit a page that doesn&apos;t exist. Click{' '}
-        <Link to="/">here</Link> to go back home.
-      </p>
-    </div>
+    <Layout location={location}>
+      <div>
+        <h1>Uh Oh!</h1>
+        <p>
+          You&apos;ve just hit a page that doesn&apos;t exist. Click{' '}
+          <Link to="/">here</Link> to go back home.
+        </p>
+      </div>
+    </Layout>
   );
 };
 

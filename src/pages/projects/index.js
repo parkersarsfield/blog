@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import { css } from 'glamor';
 import { rhythm } from '../../utils/typography';
+import Layout from '../../components/layout';
 
 const projectCard = css({
   border: '2px solid #666',
@@ -88,16 +89,16 @@ ProjectCard.propTypes = {
   node: PropTypes.object.isRequired,
 };
 
-const ProjectPage = ({ data }) => {
+const ProjectPage = ({ data, location }) => {
   return (
-    <div>
+    <Layout location={location}>
       <h1>My Projects</h1>
       <div>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectCard key={node.id} node={node} />
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 

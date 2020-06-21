@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { rhythm } from '../../utils/typography';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 const previewStyle = css({
   padding: rhythm(1),
@@ -32,9 +32,7 @@ const PostPreview = ({ post }) => {
       <div css={previewStyle}>
         <div css={title}>{post.frontmatter.title}</div>
         <div css={postInfo}>
-          <span>{`${post.frontmatter.date} - ${
-            post.timeToRead
-          } minute read`}</span>
+          <span>{`${post.frontmatter.date} - ${post.timeToRead} minute read`}</span>
         </div>
         <div css={excerpt}>{post.excerpt}</div>
       </div>
