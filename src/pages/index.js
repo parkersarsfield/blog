@@ -8,7 +8,7 @@ import Img from 'gatsby-image';
 import AboutGrid from '../components/AboutGrid';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 
 const heroStyle = css({
   position: 'relative',
