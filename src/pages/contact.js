@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { rhythm } from '../utils/typography';
 import FontAwesome from 'react-fontawesome';
+import Layout from '../components/layout';
 
 const formStyle = css({
   padding: rhythm(1),
@@ -81,7 +82,7 @@ SocialLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-const Contact = () => {
+const Contact = ({ location }) => {
   const socialSites = [
     {
       url: 'https://github.com/parkersarsfield',
@@ -101,66 +102,68 @@ const Contact = () => {
   ];
 
   return (
-    <div css={containerStyle}>
-      <h1>Contact Me</h1>
-      <div css={formStyle}>
-        <form
-          name="contact"
-          netlify-honeypot="bot-field"
-          method="POST"
-          action="contact-thanks"
-          netlify
-        >
-          <p css={{ display: 'none' }}>
-            <label>
-              Don’t fill this out if you&apos;re human:{' '}
-              <input name="bot-field" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Name: <input type="text" name="name" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Email: <input type="text" name="email" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Message: <textarea name="message" />
-            </label>
-          </p>
-          <p>
-            <button
-              css={{
-                color: '#333',
-                margin: rhythm(0.5),
-                padding: `${rhythm(0.25)} ${rhythm(0.5)}`,
-                backgroundColor: '#ffdf00',
-                transition: 'background .1s linear',
-                borderRadius: '4px',
-                border: '2px solid #333',
-                ':hover': {
+    <Layout location={location}>
+      <div css={containerStyle}>
+        <h1>Contact Me</h1>
+        <div css={formStyle}>
+          <form
+            name="contact"
+            netlify-honeypot="bot-field"
+            method="POST"
+            action="contact-thanks"
+            netlify
+          >
+            <p css={{ display: 'none' }}>
+              <label>
+                Don’t fill this out if you&apos;re human:{' '}
+                <input name="bot-field" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Name: <input type="text" name="name" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Email: <input type="text" name="email" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Message: <textarea name="message" />
+              </label>
+            </p>
+            <p>
+              <button
+                css={{
+                  color: '#333',
+                  margin: rhythm(0.5),
+                  padding: `${rhythm(0.25)} ${rhythm(0.5)}`,
                   backgroundColor: '#ffdf00',
-                  fontWeight: 'bold',
-                },
-                cursor: 'pointer',
-              }}
-              type="submit"
-            >
-              Send
-            </button>
-          </p>
-        </form>
+                  transition: 'background .1s linear',
+                  borderRadius: '4px',
+                  border: '2px solid #333',
+                  ':hover': {
+                    backgroundColor: '#ffdf00',
+                    fontWeight: 'bold',
+                  },
+                  cursor: 'pointer',
+                }}
+                type="submit"
+              >
+                Send
+              </button>
+            </p>
+          </form>
+        </div>
+        <div css={linksStyle}>
+          {socialSites.map((s) => (
+            <SocialLink url={s.url} icon={s.icon} text={s.text} key={s.url} />
+          ))}
+        </div>
       </div>
-      <div css={linksStyle}>
-        {socialSites.map(s => (
-          <SocialLink url={s.url} icon={s.icon} text={s.text} key={s.url} />
-        ))}
-      </div>
-    </div>
+    </Layout>
   );
 };
 

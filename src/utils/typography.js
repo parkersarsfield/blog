@@ -52,5 +52,5 @@ judahTheme.overrideThemeStyles = ({ rhythm }, options) => ({
 });
 
 const typography = new Typography(judahTheme);
-
-export default typography;
+const { rhythm, scale, options } = typography;
+export { rhythm, scale, options, typography as default };

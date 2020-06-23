@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { rhythm } from '../utils/typography';
@@ -7,6 +8,7 @@ import Img from 'gatsby-image';
 import AboutGrid from '../components/AboutGrid';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Layout from '../components/layout';
 
 const heroStyle = css({
   position: 'relative',
@@ -93,37 +95,39 @@ export default class IndexPage extends React.Component {
 
   render() {
     return (
-      <div css={container}>
-        <div css={scrollButton} onClick={this.scrollToAboutSection}>
-          About Me
-        </div>
-        <Header
-          logo={this.props.data.logo.resolutions}
-          title={'Parker Sarsfield'}
-          isFrontPage={true}
-        />
-        <div css={heroStyle}>
-          <div css={contentStyle}>
-            <Img
-              resolutions={this.props.data.headshot.resolutions}
-              css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
-            />
-            <p>I&apos;m Parker.</p>
-            <p>I create things.</p>
+      <Layout location={this.props.location}>
+        <div css={container}>
+          <div css={scrollButton} onClick={this.scrollToAboutSection}>
+            About Me
           </div>
-        </div>
+          <Header
+            logo={this.props.data.logo.fixed}
+            title={'Parker Sarsfield'}
+            isFrontPage={true}
+          />
+          <div css={heroStyle}>
+            <div css={contentStyle}>
+              <Img
+                fixed={this.props.data.headshot.fixed}
+                css={{ borderRadius: '100%', marginBottom: rhythm(2) }}
+              />
+              <p>I&apos;m Parker.</p>
+              <p>I create things.</p>
+            </div>
+          </div>
 
-        <AboutGrid
-          bannerSizes={this.props.data.shoeImage.sizes}
-          lastImageSizes={this.props.data.lastImage.sizes}
-          timelineImages={{
-            faithlife: this.props.data.faithlife.resolutions,
-            vandy: this.props.data.vandy.resolutions,
-            capitalone: this.props.data.capitalone.resolutions,
-          }}
-        />
-        <Footer />
-      </div>
+          <AboutGrid
+            bannerSizes={this.props.data.shoeImage.sizes}
+            lastImageSizes={this.props.data.lastImage.sizes}
+            timelineImages={{
+              faithlife: this.props.data.faithlife.fixed,
+              vandy: this.props.data.vandy.fixed,
+              capitalone: this.props.data.capitalone.fixed,
+            }}
+          />
+          <Footer />
+        </div>
+      </Layout>
     );
   }
 }
@@ -135,39 +139,41 @@ IndexPage.propTypes = {
 //eslint-disable-next-line no-undef
 export const query = graphql`
   query IndexQuery {
-    shoeImage: imageSharp(id: { regex: "/kicks.jpg/" }) {
+    shoeImage: imageSharp(fluid: { originalName: { regex: "/kicks.jpg/" } }) {
       sizes(maxWidth: 1000) {
         ...GatsbyImageSharpSizes_tracedSVG
       }
     }
-    lastImage: imageSharp(id: { regex: "/nyc.jpg/" }) {
+    lastImage: imageSharp(fluid: { originalName: { regex: "/nyc.jpg/" } }) {
       sizes(maxWidth: 350) {
         ...GatsbyImageSharpSizes_tracedSVG
       }
     }
-    faithlife: imageSharp(id: { regex: "/faithlife.png/" }) {
-      resolutions(width: 50) {
-        ...GatsbyImageSharpResolutions_tracedSVG
+    faithlife: imageSharp(
+      fluid: { originalName: { regex: "/faithlife.png/" } }
+    ) {
+      fixed(width: 50) {
+        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    vandy: imageSharp(id: { regex: "/vandy.png/" }) {
-      resolutions(width: 50) {
-        ...GatsbyImageSharpResolutions_tracedSVG
+    vandy: imageSharp(fluid: { originalName: { regex: "/vandy.png/" } }) {
+      fixed(width: 50) {
+        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    capitalone: imageSharp(id: { regex: "/cap1.png/" }) {
-      resolutions(width: 50) {
-        ...GatsbyImageSharpResolutions_tracedSVG
+    capitalone: imageSharp(fluid: { originalName: { regex: "/cap1.png/" } }) {
+      fixed(width: 50) {
+        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    logo: imageSharp(id: { regex: "/logo.png/" }) {
-      resolutions(width: 50) {
-        ...GatsbyImageSharpResolutions_tracedSVG
+    logo: imageSharp(fluid: { originalName: { regex: "/logo.png/" } }) {
+      fixed(width: 50) {
+        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    headshot: imageSharp(id: { regex: "/headshot.png/" }) {
-      resolutions(width: 200) {
-        ...GatsbyImageSharpResolutions
+    headshot: imageSharp(fluid: { originalName: { regex: "/headshot.png/" } }) {
+      fixed(width: 200) {
+        ...GatsbyImageSharpFixed
       }
     }
   }

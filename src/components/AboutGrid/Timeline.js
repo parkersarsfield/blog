@@ -82,7 +82,7 @@ const timelineData = [
 const TimelineSection = ({ date, title, info, image, location }) => (
   <li>
     <div>
-      <Img resolutions={image} />
+      <Img fixed={image} />
       <div>
         <h4 css={{ margin: rhythm(0.25) + ' 0', color: '#777' }}>{date}</h4>
         <h4 css={{ marginBottom: rhythm(0.5), color: '#777' }}>{location}</h4>
@@ -105,7 +105,7 @@ const Timeline = ({ images }) => (
   <div css={timelineStyle}>
     <h1>My Journey</h1>
     <ul>
-      {timelineData.map(data => (
+      {timelineData.map((data) => (
         <TimelineSection image={images[data.logo]} key={data.title} {...data} />
       ))}
     </ul>

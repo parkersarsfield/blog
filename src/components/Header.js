@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { rhythm, options } from '../utils/typography';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import FontAwesome from 'react-fontawesome';
 import Img from 'gatsby-image';
 
@@ -170,7 +170,7 @@ class Header extends React.Component {
           }}
           to="/"
         >
-          <Img resolutions={this.props.logo} />
+          <Img fixed={this.props.logo} />
           <h1>{this.props.title}</h1>
         </Link>
         <div css={this.state.isMenuOpen ? openLinkStyle : linkStyle}>
