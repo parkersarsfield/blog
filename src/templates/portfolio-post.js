@@ -33,7 +33,10 @@ const PortfolioPost = ({ data, pageContext, location }) => {
             </a>
           )}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: projectHTML }} />
+        <div
+          className="markdown-section"
+          dangerouslySetInnerHTML={{ __html: projectHTML }}
+        />
         <PrevNextNav
           next={pageContext.next}
           prev={pageContext.prev}

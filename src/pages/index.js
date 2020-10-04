@@ -31,16 +31,16 @@ export default class IndexPage extends React.Component {
               fixed={this.props.data.headshot.fixed}
             />
             <div className="flex flex-row w-full justify-center">
-              <a to="/rss.xml">
+              <a href="/rss.xml">
                 <IoLogoRss className="text-gray-800 mx-1 w-6 h-6" />
               </a>
-              <a to="https://www.linkedin.com/in/parker-sarsfield-bb978b118/">
+              <a href="https://www.linkedin.com/in/parker-sarsfield-bb978b118/">
                 <IoLogoLinkedin className="text-gray-800 mx-1 w-6 h-6" />
               </a>
-              <a to="https://news.ycombinator.com/user?id=psars">
+              <a href="https://news.ycombinator.com/user?id=psars">
                 <IoLogoHackernews className="text-gray-800 mx-1 w-6 h-6" />
               </a>
-              <a to="https://github.com/parkersarsfield">
+              <a href="https://github.com/parkersarsfield">
                 <IoLogoGithub className="text-gray-800 mx-1 w-6 h-6" />
               </a>
             </div>

@@ -51,5 +51,3 @@ export const query = graphql`
 ```
 
 Overall the switch to Gatsby was a great decision. I have a faster, more customizable site that I pay a lot less for. Win-win-win. Let me know your experiences and if you also made the switch.
-
-If you're still confused about how a static site can benefit you, check out [this post I wrote.](/blog/)
