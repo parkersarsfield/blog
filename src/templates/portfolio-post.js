@@ -2,59 +2,38 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import { css } from 'glamor';
-import { rhythm } from '../utils/typography';
-import BackButton from '../components/BackButton';
 import PrevNextNav from '../components/PrevNextNav';
 import Layout from '../components/layout';
-
-const linkStyle = css({
-  flex: 1,
-  maxWidth: rhythm(5),
-  textAlign: 'center',
-  color: '#333',
-  margin: rhythm(0.5),
-  padding: rhythm(0.25),
-  backgroundColor: '#ffdf00',
-  borderRadius: '4px',
-  border: '2px solid #333',
-  ':hover': {
-    backgroundColor: '#ffdf00',
-    fontWeight: 'bold',
-  },
-});
 
 const PortfolioPost = ({ data, pageContext, location }) => {
   const projectHTML = data.markdownRemark.html;
   const project = data.markdownRemark.frontmatter;
   return (
     <Layout location={location}>
-      <div>
-        <BackButton to="/projects" />
-        <h2 css={{ margin: '0' }}>{project.title}</h2>
-        <p css={{ color: '#000' }}>{project.description}</p>
+      <div className="max-w-xl mx-auto">
+        <h1 className="text-3xl font-light tracking-wide text-center mb-2">
+          {project.title}
+        </h1>
+        <div className="font-light font-large text-center mb-8">
+          {project.description}
+        </div>
         <Img
-          css={{ border: '2px solid #333' }}
+          className="border-2 border-gray-500 rounded-lg"
           sizes={project.image.childImageSharp.sizes}
         />
-        <div css={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-          <a css={linkStyle} href={project.link}>
-            See Live
-          </a>
-          <a css={[linkStyle, { background: 'unset' }]} href={project.source}>
-            View Source
-          </a>
+        <div className="flex justify-around mt-2 mb-4">
+          {project.link && (
+            <a className="text-blue-700" href={project.link}>
+              See Live
+            </a>
+          )}
+          {project.source && (
+            <a className="text-blue-700" href={project.source}>
+              View Code
+            </a>
+          )}
         </div>
-        <div>
-          <span>
-            <h3>Tools Used:</h3>
-            <h4>{project.tech.join(', ')}</h4>
-          </span>
-        </div>
-        <div>
-          <h3>About</h3>
-          <div dangerouslySetInnerHTML={{ __html: projectHTML }} />
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: projectHTML }} />
         <PrevNextNav
           next={pageContext.next}
           prev={pageContext.prev}
