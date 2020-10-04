@@ -1,24 +1,22 @@
 ---
-title: "An Interactive Guide to Interactive Rebase"
-date: "2019-11-11"
-type: "post"
+title: 'An Interactive Guide to Interactive Rebase'
+date: '2019-11-11'
+type: 'post'
 ---
 
-> Git is very powerful. 
+Git is packed with features that can make our lives as engineers much easier. But often in software engineering, many people are content with just commiting their changes with meaningless commit messages and getting their code merged without regard for the commit history.
 
-Git is feature packed. But often in the software engineering field, we see many entry level software engineers not taking advantage of any of these powerful features. Many people are content with something like the following.
-
-```sh
+```bash
 git checkout my-branch # at least they are on a feature branch!
 git commit -am "stuff" # yuck!
 git push
 ```
 
-One special feature of git that is flexible enough to solve lots of problems while being easy to wrap your head around is [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). Here is how you can rewrite history with interactive rebase to clean up a pull request. 
+One feature of git that is extremely flexible while still being simple enough to understand is [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). Here is how you can rewrite history with interactive rebase to clean up a pull request.
 
-Let's assume the following scenario. You've just spent a few weeks cranking out a complicated feature on your favorite open source package. Now it's time to make a pull request! You're about to open up the PR, but you notice your `git log` looks a little something like this. 
-```sh
-parker:git-rebase parker$ git log
+Let's assume the following scenario. You've just spent a few weeks cranking out a complicated feature on your favorite open source package. Now it's time to make a pull request! You're about to open up the PR, but you notice your `git log` looks a little something like this.
+
+```
 commit c59e65103a0b7091dffa252d8c579ec1f1bb82e0 (HEAD -> fix/squash-bugs)
 Author: Parker  <email@gmail.com>
 Date:   Mon Nov 11 11:15:57 2019 -0500
@@ -44,11 +42,11 @@ Date:   Mon Nov 11 11:14:48 2019 -0500
     update dependencies
 ```
 
-Gross. Let's squish all the commits together and rename it something meaningful so we can make a good impression on the package owner. This will leave their commit log in a much better state. 
+Gross. Let's squash all the meaningless commits together and rename it something meaningful so we can make a good impression on the package owner. This will leave their commit log in a much better state.
 
 In your terminal run `git rebase -i master`. Replace `master` with the name of the branch that is the target of your pull request. That should bring you to this screen in vim.
 
-```sh
+```bash
 pick 08469b0 update dependencies
 pick a8d4191 fix dumb thing
 pick 2496ee8 nevermind
@@ -74,9 +72,9 @@ pick c59e651 now it works!
 # Note that empty commits are commented out
 ```
 
-Now, change each instance of `pick` (except the first), to `squash`. You can do this in vim by typing `:%s/pick/squash/g` followed by `ggciwpick` then save your changes and write the commit with `:wq`. This tells git to squash the commits with `squash` next to them into the previous commit. Next you should see this screen, given that there are no conflicts. 
+Now, change each instance of `pick` (except the first), to `squash`. You can do this in vim by typing `:%s/pick/squash/g` followed by `ggciwpick` then save your changes and write the commit with `:wq`. This tells git to squash the commits with `squash` next to them into the previous commit. Next you should see this screen, given that there are no conflicts.
 
-```sh
+```bash
 # This is a combination of 3 commits.
 # This is the 1st commit message:
 
@@ -106,10 +104,10 @@ nevermind
 #
 ```
 
-The next step is to simply change this file to the name of the single commit that will replace the first four. Something like: 
+The next step is to change this file to the name of the single commit that will replace the first four. Something like:
 
-```sh
-feat(package): update package for some reason
+```bash
+feat(package): implement a cool feature
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
@@ -126,14 +124,14 @@ feat(package): update package for some reason
 #
 ```
 
-After committing, you should see a cleaned up `git log`. 
+After committing, you should see a much nicer `git log`.
 
-```sh
+```
 commit c81776ba0444931a8b6a5869ba7c294ad536e2cd (HEAD -> fix/squash-bugs)
 Author: Parker  <email@gmail.com>
 Date:   Mon Nov 11 11:27:33 2019 -0500
 
-    feat(package): update package for some reason
+    feat(package): implement a cool feature
 
 commit 9b34c8f459f635f3fc95330cb90cda2bcf5cad29 (master)
 Author: Parker  <email@gmail.com>
@@ -142,6 +140,6 @@ Date:   Mon Nov 11 11:13:29 2019 -0500
     initial commit
 ```
 
-This looks way better! 
+This looks much better!
 
-There's **so much more** that you can do with interactive rebase, including dropping commits, replaying them in real time to insert changes in between commits, and so much more. I would suggest trying it out the next time you make a pull request. Let me know if you discover any cool, out-of-the-box uses for interactive rebase!
+There's so much more that we can do with interactive rebase, including dropping commits, replaying them in real time to insert changes in between commits, and so much more. I would suggest trying it out the next time you run into a wall with git. Let me know if you discover any cool, creative uses for interactive rebase.

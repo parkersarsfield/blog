@@ -1,36 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { rhythm } from '../utils/typography';
-import FontAwesome from 'react-fontawesome';
 
 const PrevNextNav = ({ prev, next, type }) => {
   return (
-    <div css={{ display: 'flex', justifyContent: 'space-between' }}>
-      {prev ? (
-        <Link to={prev.fields.slug}>
-          <FontAwesome
-            css={{ marginBottom: rhythm(1) }}
-            name={'angle-left'}
-            size="1x"
-          />{' '}
-          Previous {type}
-        </Link>
-      ) : (
-        <div />
-      )}
-      {next ? (
-        <Link to={next.fields.slug}>
-          Next {type}{' '}
-          <FontAwesome
-            css={{ marginBottom: rhythm(1) }}
-            name={'angle-right'}
-            size="1x"
-          />
-        </Link>
-      ) : (
-        <div />
-      )}
+    <div className="text-blue-700 underline flex justify-between border-t-2 py-2 mt-4">
+      {prev ? <Link to={prev.fields.slug}>Previous {type}</Link> : <div />}
+      {next ? <Link to={next.fields.slug}>Next {type}</Link> : <div />}
     </div>
   );
 };

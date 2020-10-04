@@ -1,21 +1,22 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import BackButton from '../components/BackButton';
 import PrevNextNav from '../components/PrevNextNav';
 import Layout from '../components/layout';
 
-const BlogPost = ({ data, pageContext, location }) => {
+const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   return (
-    <Layout location={location}>
-      <div>
-        <BackButton to="/blog" />
-        <h2>{post.frontmatter.title}</h2>
-        <h3>
-          <span style={{ color: '#BBB' }}>{post.frontmatter.date}</span>
-        </h3>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    <Layout>
+      <div className="max-w-xl mx-auto">
+        <h1 className="mb-2 text-3xl font-light tracking-wide text-center">
+          {post.frontmatter.title}
+        </h1>
+        <div className="text-sm text-center mb-8">{post.frontmatter.date}</div>
+        <div
+          className="markdown-section"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <PrevNextNav
           next={pageContext.next}
           prev={pageContext.prev}
@@ -33,7 +34,6 @@ BlogPost.propTypes = {
 
 export default BlogPost;
 
-// eslint-disable-next-line no-undef
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {

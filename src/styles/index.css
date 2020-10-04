@@ -1,0 +1,25 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  @apply bg-white;
+}
+
+.markdown-section a {
+  @apply text-blue-700 underline;
+}
+
+.markdown-section h2 {
+  @apply text-2xl tracking-wide font-light;
+}
+
+.markdown-section pre {
+  @apply rounded;
+}
+
+.markdown-section > * {
+  @apply mb-4;
+}

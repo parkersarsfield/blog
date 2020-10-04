@@ -7,20 +7,22 @@ import Layout from '../components/layout';
 const BlogPage = ({ data, location }) => {
   return (
     <Layout location={location}>
-      <div>
-        <h1>My Blog</h1>
+      <div className="max-w-xl left-0 right-0 m-auto">
+        <h1 className="mb-4 text-3xl font-light text-center tracking-wide">
+          Blog Posts
+        </h1>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
+          <div key={node.id} className="mb-4 margin-auto">
             <Link
               to={node.fields.slug}
-              css={{ textDecoration: 'none', color: 'inherit' }}
+              className="text-lg text-blue-700 underline"
             >
-              <h3>
-                {node.frontmatter.title}{' '}
-                <span style={{ color: '#BBB' }}>- {node.frontmatter.date}</span>
-              </h3>
+              {node.frontmatter.title}{' '}
             </Link>
-            <p style={{ color: '#777' }}>{node.excerpt}</p>
+            <p className="text-sm">
+              {node.frontmatter.date} - {node.timeToRead} min read
+            </p>
+            <p>{node.excerpt}</p>
           </div>
         ))}
       </div>
@@ -34,7 +36,6 @@ BlogPage.propTypes = {
 
 export default BlogPage;
 
-// eslint-disable-next-line no-undef
 export const query = graphql`
   query BlogQuery {
     allMarkdownRemark(
@@ -53,6 +54,7 @@ export const query = graphql`
             slug
           }
           excerpt
+          timeToRead
         }
       }
     }
