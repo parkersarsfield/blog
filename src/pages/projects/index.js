@@ -46,7 +46,7 @@ export default ProjectPage;
 export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___title], order: ASC }
+      sort: { fields: [frontmatter___index], order: DESC }
       filter: { frontmatter: { type: { eq: "project" } } }
     ) {
       totalCount
@@ -64,6 +64,7 @@ export const query = graphql`
             }
             description
             tech
+            index
           }
           fields {
             slug

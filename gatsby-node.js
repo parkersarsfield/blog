@@ -33,6 +33,9 @@ exports.createPages = ({ graphql, actions }) => {
         allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
+              frontmatter {
+                index
+              }
               fields {
                 slug
                 type
@@ -49,11 +52,13 @@ exports.createPages = ({ graphql, actions }) => {
           return node.fields.type === 'post';
         });
 
-        const projects = result.data.allMarkdownRemark.edges.filter(
-          ({ node }) => {
+        const projects = result.data.allMarkdownRemark.edges
+          .filter(({ node }) => {
             return node.fields.type === 'project';
-          },
-        );
+          })
+          .sort(
+            (p1, p2) => p2.node.frontmatter.index - p1.node.frontmatter.index,
+          );
 
         posts.forEach(({ node }, index) => {
           const next = index === 0 ? false : posts[index - 1].node;
