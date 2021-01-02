@@ -37,15 +37,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-117186698-1',
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-favicon',
       options: {
         logo: './src/media/logo.png',
