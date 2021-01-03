@@ -22,7 +22,6 @@
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-feed": "^2.5.13",
     "gatsby-plugin-glamor": "^2.3.4",
-    "gatsby-plugin-google-analytics": "^2.3.4",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-postcss": "^2.3.13",
     "gatsby-plugin-react-helmet": "^3.3.4",
@@ -41,7 +40,6 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.11.0",
     "react-typography": "^0.16.19",
-    "sharp": "^0.25.4",
     "typography": "^0.16.19",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
