@@ -23,7 +23,7 @@ This interaction doesn't happen often in the real world, but when we visit virtu
 
 I previously had Google Analytics installed on this site. Why? It was easy to implement. I was making a website, and I assumed all websites needed some sort of tracking.
 
-But one day I noticed one of my browser extensioned had blocked some trackers from my website, and I began to ask a few questions about why I needed GA.
+But one day I noticed one of my browser extensions had blocked some trackers from my website, and I began to ask a few questions about why I needed GA.
 
 > Am I actively trying to increase the amount of visitors to this site? 
 
