@@ -40,7 +40,6 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.11.0",
     "react-typography": "^0.16.19",
-    "sharp": "^0.25.4",
     "typography": "^0.16.19",
     "typography-theme-judah": "^0.15.10",
     "typography-theme-ocean-beach": "^0.15.11"
