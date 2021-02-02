@@ -108,7 +108,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-glamor',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',

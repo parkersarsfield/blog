@@ -1,16 +1,9 @@
 import React from 'react';
-import { css } from 'glamor';
-
-const footerStyle = css({
-  flexShrink: '0',
-  display: 'flex',
-  justifyContent: 'center',
-});
 
 const Footer = () => (
-  <div css={footerStyle}>
+  <footer className="text-center">
     <span>&copy; {new Date().getFullYear()} Parker Sarsfield</span>
-  </div>
+  </footer>
 );
 
 export default Footer;
