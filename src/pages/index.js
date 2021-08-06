@@ -47,7 +47,7 @@ export default class IndexPage extends React.Component {
           </div>
           <div className="max-w-lg">
             <p className="py-2">
-              Hello! I&apos;m Parker. I am a software engineer, Vanderbilt Alumni, and overconfident home cook.
+              Hello! I&apos;m Parker. I am a software engineer, Vanderbilt alumni, and overconfident home cook.
               I currently build software for Storyblocks.
             </p>
             <p className="py-2">
