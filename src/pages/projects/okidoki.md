@@ -3,7 +3,7 @@ title: 'Okidoki'
 link: 'https://teamokidoki.com'
 image: 'okidoki.png'
 description: 'Freelance Project'
-tech: ['React', 'Typescript', 'Gatsby', 'Stripe', 'Netlify', 'Three.js']
+tech: ['React', 'Typescript', 'Gatsby', 'Stripe', 'Three.js']
 type: 'project'
 index: 4
 ---

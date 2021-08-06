@@ -16,44 +16,44 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <h1 className="mb-4 text-3xl text-center font-light tracking-wide">
+        <h1 className="mb-4 text-3xl font-light tracking-wide text-center">
           About Me
         </h1>
-        <div className="flex flex-row flex-wrap rounded items-center self-center justify-center max-w-4xl mx-auto shadow-md border-2 border-gray-400 p-4 bg-gray-100">
-          <div className="w-full flex">
-            <span className="rounded-full w-3 h-3 bg-red-500" />
-            <span className="rounded-full w-3 h-3 bg-yellow-500 mx-2" />
-            <span className="rounded-full w-3 h-3 bg-green-500" />
+        <div className="flex flex-row flex-wrap items-center self-center justify-center max-w-4xl p-4 mx-auto bg-gray-100 border-2 border-gray-400 rounded shadow-md">
+          <div className="flex w-full">
+            <span className="w-3 h-3 bg-red-500 rounded-full" />
+            <span className="w-3 h-3 mx-2 bg-yellow-500 rounded-full" />
+            <span className="w-3 h-3 bg-green-500 rounded-full" />
           </div>
           <div className="m-8">
             <Img
               className="rounded-full"
               fixed={this.props.data.headshot.fixed}
             />
-            <div className="flex flex-row w-full justify-center">
+            <div className="flex flex-row justify-center w-full">
               <a href="/rss.xml">
-                <IoLogoRss className="text-gray-800 mx-1 w-6 h-6" />
+                <IoLogoRss className="w-6 h-6 mx-1 text-gray-800" />
               </a>
               <a href="https://www.linkedin.com/in/parker-sarsfield-bb978b118/">
-                <IoLogoLinkedin className="text-gray-800 mx-1 w-6 h-6" />
+                <IoLogoLinkedin className="w-6 h-6 mx-1 text-gray-800" />
               </a>
               <a href="https://news.ycombinator.com/user?id=psars">
-                <IoLogoHackernews className="text-gray-800 mx-1 w-6 h-6" />
+                <IoLogoHackernews className="w-6 h-6 mx-1 text-gray-800" />
               </a>
               <a href="https://github.com/parkersarsfield">
-                <IoLogoGithub className="text-gray-800 mx-1 w-6 h-6" />
+                <IoLogoGithub className="w-6 h-6 mx-1 text-gray-800" />
               </a>
             </div>
           </div>
           <div className="max-w-lg">
             <p className="py-2">
-              Hello! I&apos;m Parker Sarsfield. I am a software engineer living
-              in the D.C. area. I love building software from the ground up and
-              learning new technologies. I currently write code for Capital One.
+              Hello! I&apos;m Parker. I am a software engineer, Vanderbilt Alumni, and overconfident home cook.
+              I currently build software for Storyblocks.
             </p>
             <p className="py-2">
-              When I&apos;m not writing code, you can find me rock climing,
-              playing guitar, or exploring D.C.
+              I&apos;m passionate about build products that add value to people&apos;s lives.
+              When I&apos;m not writing code, you can find me 
+              playing guitar or exploring Washington, D.C.
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default class IndexPage extends React.Component {
             faithlife: this.props.data.faithlife.fixed,
             vandy: this.props.data.vandy.fixed,
             capitalone: this.props.data.capitalone.fixed,
-            dcIcon: this.props.data.dcIcon.fixed,
+            storyblocks: this.props.data.storyblocks.fixed,
           }}
         />
       </Layout>
@@ -98,7 +98,7 @@ export const query = graphql`
         ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    dcIcon: imageSharp(fluid: { originalName: { regex: "/dc-icon.png/" } }) {
+    storyblocks: imageSharp(fluid: { originalName: { regex: "/storyblocks.png/" } }) {
       fixed(width: 50) {
         ...GatsbyImageSharpFixed_tracedSVG
       }
