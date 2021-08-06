@@ -39,7 +39,7 @@ export default ({ children }) => {
             title={data.site.siteMetadata.title}
             isFrontPage={false}
           />
-          <div className="w-xl left-0 right-0 m-auto">{children}</div>
+          <div className="left-0 right-0 m-auto w-xl">{children}</div>
           <Footer />
         </div>
       )}
