@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 const timelineData = [
   {
-    date: 'Summer 2016',
+    date: '2016',
     title: 'Faithlife',
     logo: 'faithlife',
     location: 'Bellingham, WA',
@@ -16,10 +16,16 @@ const timelineData = [
     location: 'McLean, VA',
   },
   {
-    date: '2020 - present',
+    date: '2020 - 2021',
     title: 'Storyblocks',
     logo: 'storyblocks',
     location: 'Arlington, VA',
+  },
+  {
+    date: '2021 - present',
+    title: 'Palantir',
+    logo: 'palantir',
+    location: 'Washington, DC',
   },
 ];
 

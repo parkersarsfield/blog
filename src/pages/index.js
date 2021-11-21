@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import {
@@ -47,13 +47,9 @@ export default class IndexPage extends React.Component {
           </div>
           <div className="max-w-lg">
             <p className="py-2">
-              Hello! I&apos;m Parker. I am a software engineer, Vanderbilt alumni, and overconfident home cook.
-              I currently build software for Storyblocks.
-            </p>
-            <p className="py-2">
-              I&apos;m passionate about build products that add value to people&apos;s lives.
-              When I&apos;m not writing code, you can find me 
-              playing guitar or exploring Washington, D.C.
+              Hello! I&apos;m Parker. I am a software engineer, Vanderbilt
+              alumni, and overconfident home cook. I currently build software at
+              Palantir.
             </p>
           </div>
         </div>
@@ -63,6 +59,7 @@ export default class IndexPage extends React.Component {
             vandy: this.props.data.vandy.fixed,
             capitalone: this.props.data.capitalone.fixed,
             storyblocks: this.props.data.storyblocks.fixed,
+            palantir: this.props.data.palantir.fixed,
           }}
         />
       </Layout>
@@ -98,7 +95,14 @@ export const query = graphql`
         ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-    storyblocks: imageSharp(fluid: { originalName: { regex: "/storyblocks.png/" } }) {
+    storyblocks: imageSharp(
+      fluid: { originalName: { regex: "/storyblocks.png/" } }
+    ) {
+      fixed(width: 50) {
+        ...GatsbyImageSharpFixed_tracedSVG
+      }
+    }
+    palantir: imageSharp(fluid: { originalName: { regex: "/palantir.png/" } }) {
       fixed(width: 50) {
         ...GatsbyImageSharpFixed_tracedSVG
       }
