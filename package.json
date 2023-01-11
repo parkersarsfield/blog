@@ -27,7 +27,7 @@
     "gatsby-plugin-typography": "^2.5.4",
     "gatsby-remark-prismjs": "^3.5.15",
     "gatsby-source-filesystem": "^2.3.12",
-    "gatsby-transformer-remark": "^2.8.17",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.5",
     "prismjs": "^1.27.0",
     "react": "^16.13.1",
