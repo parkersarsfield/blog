@@ -1,0 +1,4 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'sarsfield.io'
+theme = 'sarsfield.io'
