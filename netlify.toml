@@ -1,0 +1,8 @@
+[build.environment]
+HUGO_VERSION = "0.126.0"
+TZ = "America/New_York"
+
+[build]
+base = "sarsfield.io"
+publish = "public"
+command = "hugo --gc --minify"
