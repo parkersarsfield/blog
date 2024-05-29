@@ -1,7 +1,6 @@
 ---
 title: "sarsfield.io"
 date: 2023-08-12T22:04:28-04:00
-draft: true
 layout: indexlayout
 home_image: headshot.jpeg
 ---
