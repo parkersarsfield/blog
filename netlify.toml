@@ -4,5 +4,5 @@ TZ = "America/New_York"
 
 [build]
 base = "sarsfield.io/"
-publish = "public"
+publish = "public/"
 command = "hugo --gc --minify"
