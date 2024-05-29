@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="container">
+  <a href="{{ .CurrentSection.RelPermalink }}"
+    >Back to {{ .CurrentSection.Title }}</a
+  >
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+{{ end }}

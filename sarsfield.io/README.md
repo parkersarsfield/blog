@@ -9,12 +9,12 @@ hugo port currently in progress
 hugo server -D
 ```
 
-## code snippets
+## code snippets that might be useful
 process photo
 ```html
     <div id="content">
       {{- block "main" . }}{{- end }} {{ $image := .Resources.GetMatch
-      "headshot.jpg" }} {{ $image := $image.Resize "x400" }}
+      "headshot.jpg" }} {{ $image := $image.Resize "800" }}
       <img
         src="{{ $image.RelPermalink }}"
         width="{{ $image.Width }}"

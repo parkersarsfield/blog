@@ -1,0 +1,5 @@
+{{ define "main" }} {{ if .Params.home_image }} {{ $siteurl := (.RelPermalink)
+}} {{ $sitetitle := (.Title) }} {{ with .Resources.GetMatch (.Params.home_image)
+}} {{ $thumb := .Resize "250x q100" }}
+<img src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" />
+{{ end }} {{ end }} {{ .Content }} {{ end }}
