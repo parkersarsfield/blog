@@ -1,16 +1,42 @@
 ---
-
+import { Image } from 'astro:assets';
+import headshotImage from '../images/headshot.jpeg';
+import RootLayout from '../layouts/RootLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>init astro</h1>
-  </body>
-</html>
+<style>
+  article {
+    display: flex;
+  }
+
+  .headshot {
+    border-radius: 100%;
+  }
+</style>
+
+<RootLayout title="sarsfield.io">
+  <article>
+    <figure>
+      <Image src={headshotImage} alt="me hiking" class="headshot" />
+    </figure>
+    <section>
+      <h2>about</h2>
+      <p>
+        🚧 I'm rebuilding this site in the open, so some content might be
+        temporarily missing or broken.
+      </p>
+      <p>
+        I'm a husband, dad, software engineer, and Vanderbilt alum. I'm
+        currently building software at Palantir. All thoughts and opinions are
+        my own.
+      </p>
+      <p>
+        Find me on:
+        <ul>
+          <li><a href="https://github.com/parkersarsfield">github</a></li>
+          <li>rss [coming soon]</li>
+        </ul>
+      </p>
+    </section>
+  </article>
+</RootLayout>
