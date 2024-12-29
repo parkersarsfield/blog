@@ -13,3 +13,5 @@
   publish = "dist/"
 
   command = "pnpm build --verbose"
+
+  environment = { NODE_VERSION = "22" }
