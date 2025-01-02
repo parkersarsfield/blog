@@ -7,8 +7,9 @@ This org file is temporary and will capture the progress of this project.
 * DONE test deploy to netlify
 * TODO convert homepage
 ** TODO styles
-** TODO content
+** DONE content
 * TODO convert posts
 * TODO base layout
 * TODO post layout
 * TODO 404 page
+* TODO content collection for posts

@@ -6,6 +6,20 @@ interface Props {
 const { title } = Astro.props;
 ---
 
+<style>
+  main {
+    max-width: 850px;
+    margin: 2rem auto;
+  }
+
+  body {
+    /* "Geometric humanist" fonts from https://modernfontstacks.com/ */
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+      sans-serif;
+    font-weight: normal;
+  }
+</style>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
