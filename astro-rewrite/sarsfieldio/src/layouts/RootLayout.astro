@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<style>
+  main {
+    max-width: 850px;
+    margin: 1rem auto;
+  }
+
+  body {
+    /* "Geometric humanist" fonts from https://modernfontstacks.com/ */
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+      sans-serif;
+    font-weight: normal;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>

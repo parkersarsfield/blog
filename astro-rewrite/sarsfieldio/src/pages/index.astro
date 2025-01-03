@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import headshotImage from '../images/headshot.jpeg';
+import RootLayout from '../layouts/RootLayout.astro';
+---
+
+<style>
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  section {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .headshot {
+    border-radius: 100%;
+  }
+</style>
+
+<RootLayout title="sarsfield.io">
+  <article>
+    <figure>
+      <Image src={headshotImage} alt="me hiking" class="headshot" />
+    </figure>
+    <section>
+      <h2>About</h2>
+      <p>
+        I'm a husband, dad, software engineer, and Vanderbilt alum. I'm
+        currently building software at Palantir. All thoughts and opinions are
+        my own.
+      </p>
+      <p>
+        <h3>Work history</h3>
+        <ul>
+          <li>[2021 - present] Palantir Technologies</li>
+          <li>[2020 - 2021] Storyblocks</li>
+          <li>[2017 - 2020] Capital One</li>
+          <li>[Summer 2016] Faithlife</li>
+        </ul>
+      </p>
+      <p>
+        I've also shipped several rich and performant web applications as
+        freelance projects for clients. Ask me about them!
+      </p>
+      <p>
+        <h3>Find me on:</h3>
+        <ul>
+          <li><a href="https://github.com/parkersarsfield">github</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/parker-sarsfield-bb978b118/"
+              >linkedin</a
+            >
+          </li>
+        </ul>
+      </p>
+    </section>
+  </article>
+</RootLayout>
