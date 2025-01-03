@@ -1,15 +1,9 @@
 #+title: Astro migration
 
-I'm aiming to rewrite my site using the Astro web framework.
+I'm aiming to rewrite my public site using the Astro web framework.
 This org file is temporary and will capture the progress of this project.
 
 * DONE init project
 * DONE test deploy to netlify
-* TODO convert homepage
-** TODO styles
-** DONE content
-* TODO convert posts
-* TODO base layout
-* TODO post layout
+* TODO decide on headshot photo
 * TODO 404 page
-* TODO content collection for posts
