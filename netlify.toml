@@ -2,10 +2,9 @@
   # Directory where the build system installs dependencies
   # and runs your build. Store your package.json, .nvmrc, etc here.
   # If not set, defaults to the root directory.
-  base = "astro-rewrite/sarsfieldio/"
 
   # the docs say this is relative to the base directory, but this doesn't seem accurate
-  publish = "astro-rewrite/sarsfieldio/dist"
+  publish = "dist"
 
   command = "pnpm build --verbose"
 
