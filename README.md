@@ -1,6 +1,6 @@
 # blog
 
-COde for my personal landing page, written in [Astro](https://docs.astro.build).
+Code for my personal landing page, written in [Astro](https://docs.astro.build).
 
 
 ## 🧞 Commands
