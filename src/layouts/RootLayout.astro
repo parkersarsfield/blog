@@ -5,17 +5,38 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<style>
+<style is:global>
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --link-color: #0000ee;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #1a1a1a;
+      --text-color: #ffffff;
+      --link-color: #66b2ff;
+    }
+  }
+
   main {
     max-width: 850px;
     margin: 1rem auto;
   }
 
   body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     /* "Geometric humanist" fonts from https://modernfontstacks.com/ */
     font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
       sans-serif;
     font-weight: normal;
+  }
+
+  a,
+  a:visited {
+    color: var(--link-color);
   }
 </style>
 
